@@ -8,8 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+
     
-    var tasks = ["Write an article or blogpost","Dribble Concept","Behance case study","Conduct exam"]
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var circularProgress1: CircularProgressView!
@@ -38,19 +38,19 @@ class ViewController: UIViewController {
         circle1Percentage.text = "\(Int(activityPercetage * 100))"
         circle2Percentage.text = "\(Int(activityPercetage * 100))"
         circle3Percentage.text = "\(Int(activityPercetage * 100))"
-
+        
+        goalTasks.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goalTasks.dataSource = self
         goalTasks.delegate = self
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        goalTasks.register(nib, forCellReuseIdentifier: "TableViewCell")
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+        tasks[indexPath.row].completed.toggle()
+        cell.configureCell(selected: tasks[indexPath.row].completed)
     }
-    //TODO: Disable the box highlight when user select a row and call taskCompleted method from TableViewCell
 }
 
 extension ViewController: UITableViewDataSource {
@@ -60,9 +60,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.taskLabel.text = tasks[indexPath.row]
+        cell.taskLabel.text = tasks[indexPath.row].task
+        cell.checkBox.image =  UIImage(systemName: "square")
         return cell
     }
-
-    
 }
