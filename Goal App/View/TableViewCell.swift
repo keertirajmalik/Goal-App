@@ -19,7 +19,8 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        checkBox.image =  UIImage(systemName: "square")
+        self.contentView.layer.cornerRadius = 25
+        self.contentView.layer.masksToBounds = true
     }
     
         func configureCell(selected: Bool){
