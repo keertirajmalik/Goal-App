@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var goalTasks: UITableView!
     
+    var activeGoals: [Task] = tasks.filter { task in task.completed == false }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,20 +59,23 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+        activeGoals[indexPath.row].completed.toggle()
         tasks[indexPath.row].completed.toggle()
-        cell.configureCell(selected: tasks[indexPath.row].completed)
+        cell.configureCell(selected: activeGoals[indexPath.row].completed)
         updateCompletionRateProgressBar()
+        activeGoals = tasks.filter { task in task.completed == false }
+        self.goalTasks.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tasks.count
+        activeGoals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let task = tasks[indexPath.row]
+        let task = activeGoals[indexPath.row]
         cell.taskLabel.text = task.task
         cell.configureCell(selected: task.completed)
         return cell
