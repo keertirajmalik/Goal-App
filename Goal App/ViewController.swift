@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
@@ -37,14 +37,20 @@ class ViewController: UIViewController {
         overDueProgress.setProgressWithAnimation(duration: 0.75, value: activityPercetage)
         completionRateProgress.trackClr = UIColor.systemGray6
         completionRateProgress.progressClr = UIColor.orange
-        completionRateProgress.setProgressWithAnimation(duration: 0.75, value: 0.95)
         accuracyProgress.trackClr = UIColor.systemGray6
         accuracyProgress.progressClr = UIColor.systemGreen
         accuracyProgress.setProgressWithAnimation(duration: 0.75, value: 0.95)
         
+        updateCompletionRateProgressBar()
         overDueProgressPercetange.text = "\(Int(activityPercetage * 100))"
-        completionRateProgressPercentage.text = "\(Int(activityPercetage * 100))"
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
+    }
+    
+    func updateCompletionRateProgressBar() {
+        let completedTaskCount = tasks.filter { task in task.completed == true }.count
+        let totoalTaskCount = tasks.count
+        completionRateProgressPercentage.text = "\(Int(Float(completedTaskCount) / Float(totoalTaskCount) * 100))"
+        completionRateProgress.setProgressWithAnimation(duration: 0.75, value: Float(completedTaskCount) / Float(totoalTaskCount))
     }
 }
 
@@ -53,6 +59,7 @@ extension ViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         tasks[indexPath.row].completed.toggle()
         cell.configureCell(selected: tasks[indexPath.row].completed)
+        updateCompletionRateProgressBar()
     }
 }
 
@@ -63,8 +70,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.taskLabel.text = tasks[indexPath.row].task
-        cell.configureCell(selected: tasks[indexPath.row].completed)
+        let task = tasks[indexPath.row]
+        cell.taskLabel.text = task.task
+        cell.configureCell(selected: task.completed)
         return cell
     }
 }
