@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330BD26B288EBBA100866B41 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26A288EBBA100866B41 /* Task.swift */; };
+		330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */; };
 		3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D63E2879F2F900441868 /* AppDelegate.swift */; };
 		3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6402879F2F900441868 /* SceneDelegate.swift */; };
 		3352D6432879F2F900441868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6422879F2F900441868 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		330BD26A288EBBA100866B41 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalsViewController.swift; sourceTree = "<group>"; };
 		3352D63B2879F2F900441868 /* Goal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3352D63E2879F2F900441868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3352D6402879F2F900441868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
 				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
 				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
 				33DEFCE728830FAD00A68414 /* TableViewCell.xib */,
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				330BD26B288EBBA100866B41 /* Task.swift in Sources */,
+				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */,
 				3352D6432879F2F900441868 /* ViewController.swift in Sources */,
