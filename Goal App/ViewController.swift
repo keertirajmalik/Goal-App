@@ -64,7 +64,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.taskLabel.text = tasks[indexPath.row].task
-        cell.checkBox.image =  UIImage(systemName: "square")
+        cell.configureCell(selected: tasks[indexPath.row].completed)
         return cell
     }
 }
