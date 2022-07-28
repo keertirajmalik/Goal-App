@@ -59,12 +59,11 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        activeGoals[indexPath.row].completed.toggle()
-        tasks[indexPath.row].completed.toggle()
-        cell.configureCell(selected: activeGoals[indexPath.row].completed)
-        updateCompletionRateProgressBar()
+        cell.configureCell(selected: true)
         activeGoals = tasks.filter { task in task.completed == false }
+        updateCompletionRateProgressBar()
         self.goalTasks.reloadData()
+        //TODO: Main taks list not getting updated properly due to indexpath is taken from the active goal list indexpath
     }
 }
 

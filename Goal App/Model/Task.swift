@@ -15,4 +15,5 @@ struct Task{
 var tasks = [Task(task: "Write an article or blogpost",completed: false),
              Task(task: "Dribble Concept",completed: false),
              Task(task: "Behance case study",completed: true),
+             Task(task: "Behance case study",completed: true),
              Task(task: "Conduct exam",completed: true)]
