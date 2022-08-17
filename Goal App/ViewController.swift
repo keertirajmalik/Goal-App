@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var goalTasks: UITableView!
     
-    var activeGoals: [Task] = tasks.filter { task in task.completed == false }
+    var activeGoals: [Goal] = originalGoalsList.filter { task in task.completed == false }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,8 @@ class ViewController: UIViewController {
     }
     
     func updateCompletionRateProgressBar() {
-        let completedTaskCount = tasks.filter { task in task.completed == true }.count
-        let totoalTaskCount = tasks.count
+        let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
+        let totoalTaskCount = originalGoalsList.count
         completionRateProgressPercentage.text = "\(Int(Float(completedTaskCount) / Float(totoalTaskCount) * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: Float(completedTaskCount) / Float(totoalTaskCount))
     }
@@ -60,7 +60,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         cell.configureCell(selected: true)
-        activeGoals = tasks.filter { task in task.completed == false }
+        activeGoals = originalGoalsList.filter { task in task.completed == false }
         updateCompletionRateProgressBar()
         self.goalTasks.reloadData()
         //TODO: Main taks list not getting updated properly due to indexpath is taken from the active goal list indexpath

@@ -12,7 +12,7 @@ class PersonalGoalsViewController: UIViewController {
     @IBOutlet weak var goals: UITableView!
     @IBOutlet weak var addNewGoalButton: UIButton!
     
-    var taskList: [Task] = tasks
+    var goalList: [Goal] = originalGoalsList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,35 +30,37 @@ class PersonalGoalsViewController: UIViewController {
     
     @IBAction func goalTypeChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            taskList = tasks
+            goalList = originalGoalsList
             goals.reloadData()
         } else if sender.selectedSegmentIndex == 1 {
-            taskList = tasks.filter { task in task.completed == false }
+            goalList = originalGoalsList.filter { task in task.completed == false }
             goals.reloadData()
         } else if sender.selectedSegmentIndex == 2 {
-            taskList = tasks.filter { task in task.completed == true }
+            goalList = originalGoalsList.filter { task in task.completed == true }
             goals.reloadData()
         }
     }
+    
+    
 }
 
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        tasks[indexPath.row].completed.toggle()
-        taskList[indexPath.row].completed.toggle()
-        cell.configureCell(selected: taskList[indexPath.row].completed)
+        updateGoalStatus(goalId: goalList[indexPath.row].id)
+        cell.configureCell(selected: goalList[indexPath.row].completed)
     }
+    
 }
 
 extension PersonalGoalsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        taskList.count
+        goalList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let task = taskList[indexPath.row]
+        let task = goalList[indexPath.row]
         cell.taskLabel.text = task.task
         cell.configureCell(selected: task.completed)
         return cell

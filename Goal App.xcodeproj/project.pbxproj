@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330BD26B288EBBA100866B41 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26A288EBBA100866B41 /* Task.swift */; };
+		330BD26B288EBBA100866B41 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26A288EBBA100866B41 /* Goal.swift */; };
 		330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */; };
 		3341FE3C2892A5CF00A8D58F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */; };
 		3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D63E2879F2F900441868 /* AppDelegate.swift */; };
@@ -44,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		330BD26A288EBBA100866B41 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		330BD26A288EBBA100866B41 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalsViewController.swift; sourceTree = "<group>"; };
 		3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewGoalViewController.swift; path = View/NewGoalViewController.swift; sourceTree = "<group>"; };
 		3352D63B2879F2F900441868 /* Goal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +94,7 @@
 		330BD26C288EBBB800866B41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				330BD26A288EBBA100866B41 /* Task.swift */,
+				330BD26A288EBBA100866B41 /* Goal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330BD26B288EBBA100866B41 /* Task.swift in Sources */,
+				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */,
@@ -420,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -474,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
