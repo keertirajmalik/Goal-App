@@ -21,15 +21,20 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var goalTasks: UITableView!
     
-    var activeGoals: [Goal] = originalGoalsList.filter { task in task.completed == false }
+    var activeGoals: [Goal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        progressCircleSetup()
         goalTasks.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goalTasks.dataSource = self
         goalTasks.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        activeGoals = originalGoalsList.filter { task in task.completed == false }
+        goalTasks.reloadData()
+        progressCircleSetup()
     }
     
     private func progressCircleSetup(){
@@ -58,14 +63,10 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        cell.configureCell(selected: true)
-        var goal = originalGoalsList.first(where: { activeGoals[indexPath.row].id == $0.id})
-        goal?.completed.toggle()
+        originalGoalsList[indexPath.row].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
         updateCompletionRateProgressBar()
         self.goalTasks.reloadData()
-        //TODO: Main taks list not getting updated properly due to indexpath is taken from the active goal list indexpath
     }
 }
 
