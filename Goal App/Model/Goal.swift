@@ -8,6 +8,7 @@
 import Foundation
 
 struct Goal{
+    var id = UUID()
     var task: String
     var completed: Bool
     
