@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        originalGoalsList[indexPath.row].updateCompleted()
+        originalGoalsList[indexPath.row].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
         updateCompletionRateProgressBar()
         self.goalTasks.reloadData()

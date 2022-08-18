@@ -43,8 +43,8 @@ class PersonalGoalsViewController: UIViewController {
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        originalGoalsList[indexPath.row].updateCompleted()
-        goalList[indexPath.row].updateCompleted()
+        originalGoalsList[indexPath.row].updateGoalCompletedStatus()
+        goalList[indexPath.row].updateGoalCompletedStatus()
         cell.configureCell(selected: goalList[indexPath.row].completed)
         goals.reloadData()
     }

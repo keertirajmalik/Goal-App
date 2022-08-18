@@ -11,7 +11,7 @@ struct Goal{
     var task: String
     var completed: Bool
     
-    mutating func updateCompleted(){
+    mutating func updateGoalCompletedStatus(){
         self.completed.toggle()
     }
 }
