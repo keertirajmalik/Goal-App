@@ -17,8 +17,6 @@ class PersonalGoalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
         goals.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goals.dataSource = self
         goals.delegate = self
@@ -47,11 +45,36 @@ class PersonalGoalsViewController: UIViewController {
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        updateGoalStatus(goalId: goalList[indexPath.row].id)
-        cell.configureCell(selected: goalList[indexPath.row].completed)
+
+//        var goal = originalGoalsList.first(where: { goalList[indexPath.row].id == $0.id})
+//        goal?.completed.toggle()
+        goalList[indexPath.row].completed.toggle()
+//        print(originalGoalsList)
+        
+        updateCompleted(goalId: goalList[indexPath.row].id)
+        print(originalGoalsList)
+
+        cell.configureCell(selected:  goalList[indexPath.row].completed)
+        goals.reloadData()
     }
     
+    func updateCompleted(goalId: UUID) -> [Goal]{
+        var goal = originalGoalsList.first(where: { goalId == $0.id})?.completed
+       return goal?.toggle()
+        
+        
+//        print(goal)[
+    }
 }
+
+//extension PersonalGoalsViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+//        goalList[indexPath.row].completed.toggle()
+//        originalGoalsList[indexPath.row].completed.toggle()
+//        cell.configureCell(selected: goalList[indexPath.row].completed)
+//    }
+//}
 
 extension PersonalGoalsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

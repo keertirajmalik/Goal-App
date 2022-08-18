@@ -12,7 +12,7 @@
 		3341FE3C2892A5CF00A8D58F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */; };
 		3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D63E2879F2F900441868 /* AppDelegate.swift */; };
 		3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6402879F2F900441868 /* SceneDelegate.swift */; };
-		3352D6432879F2F900441868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6422879F2F900441868 /* ViewController.swift */; };
+		3352D6432879F2F900441868 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6422879F2F900441868 /* MainViewController.swift */; };
 		3352D6462879F2F900441868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3352D6442879F2F900441868 /* Main.storyboard */; };
 		3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */; };
 		3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3352D64A2879F2FF00441868 /* Assets.xcassets */; };
@@ -50,7 +50,7 @@
 		3352D63B2879F2F900441868 /* Goal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3352D63E2879F2F900441868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3352D6402879F2F900441868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3352D6422879F2F900441868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3352D6422879F2F900441868 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3352D6452879F2F900441868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3352D6482879F2F900441868 /* Goal_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Goal_App.xcdatamodel; sourceTree = "<group>"; };
 		3352D64A2879F2FF00441868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				330BD26C288EBBB800866B41 /* Model */,
 				3352D63E2879F2F900441868 /* AppDelegate.swift */,
 				3352D6402879F2F900441868 /* SceneDelegate.swift */,
-				3352D6422879F2F900441868 /* ViewController.swift */,
+				3352D6422879F2F900441868 /* MainViewController.swift */,
 				3352D6442879F2F900441868 /* Main.storyboard */,
 				3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */,
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
@@ -310,7 +310,7 @@
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */,
 				3341FE3C2892A5CF00A8D58F /* NewGoalViewController.swift in Sources */,
-				3352D6432879F2F900441868 /* ViewController.swift in Sources */,
+				3352D6432879F2F900441868 /* MainViewController.swift in Sources */,
 				3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */,
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,

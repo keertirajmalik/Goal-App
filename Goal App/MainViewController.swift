@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     
     @IBOutlet weak var username: UILabel!
@@ -56,10 +56,12 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         cell.configureCell(selected: true)
+        var goal = originalGoalsList.first(where: { activeGoals[indexPath.row].id == $0.id})
+        goal?.completed.toggle()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
         updateCompletionRateProgressBar()
         self.goalTasks.reloadData()
@@ -67,7 +69,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         activeGoals.count
     }

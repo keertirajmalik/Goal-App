@@ -11,6 +11,12 @@ struct Goal{
     var id = UUID()
     var task: String
     var completed: Bool
+    
+    mutating func updateCompleted(goalId: UUID){
+        var goal = originalGoalsList.first(where: { goalId == $0.id})
+        goal?.completed.toggle()
+        print(goal)
+    }
 }
 
 var originalGoalsList = [Goal(task: "Write an article or blogpost",completed: false),
