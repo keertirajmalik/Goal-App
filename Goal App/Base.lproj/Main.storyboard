@@ -382,6 +382,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Goal" largeTitleDisplayMode="always" id="9Nu-8i-H31"/>
                     <connections>
+                        <outlet property="createdDateView" destination="lBV-Ni-I6O" id="EbY-LR-4nK"/>
+                        <outlet property="dueDateView" destination="6dz-eg-Gf3" id="yob-sQ-i1t"/>
                         <outlet property="goalCreatedDate" destination="6wg-PA-JVr" id="d57-5q-JUh"/>
                         <outlet property="goalDueDate" destination="Gte-K8-9Hr" id="yYq-ar-NeS"/>
                         <outlet property="goalNameTextField" destination="taQ-HP-oyC" id="f7x-To-UUJ"/>
