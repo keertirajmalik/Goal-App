@@ -59,14 +59,18 @@ class MainViewController: UIViewController {
         completionRateProgressPercentage.text = "\(Int(Float(completedTaskCount) / Float(totoalTaskCount) * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: Float(completedTaskCount) / Float(totoalTaskCount))
     }
+    
+    func updateActiveGoalCompletedStatus(id: UUID){
+        originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
+        activeGoals = originalGoalsList.filter { task in task.completed == false }
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        originalGoalsList[indexPath.row].updateGoalCompletedStatus()
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
+        updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
         updateCompletionRateProgressBar()
-        self.goalTasks.reloadData()
+        goalTasks.reloadData()
     }
 }
 

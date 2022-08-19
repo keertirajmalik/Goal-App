@@ -11,7 +11,7 @@ class PersonalGoalsViewController: UIViewController {
     
     @IBOutlet weak var goals: UITableView!
     @IBOutlet weak var addNewGoalButton: UIButton!
-    
+    var selectedSegmentIndex: Int = 0
     var goalList: [Goal] = originalGoalsList
     
     override func viewDidLoad() {
@@ -27,25 +27,34 @@ class PersonalGoalsViewController: UIViewController {
     
     
     @IBAction func goalTypeChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
+        selectedSegmentIndex = sender.selectedSegmentIndex
+        getGoalsList(segment: selectedSegmentIndex)
+    }
+    
+    func getGoalsList(segment: Int){
+        if segment == 0 {
             goalList = originalGoalsList
             goals.reloadData()
-        } else if sender.selectedSegmentIndex == 1 {
+        } else if segment == 1 {
             goalList = originalGoalsList.filter { task in task.completed == false }
             goals.reloadData()
-        } else if sender.selectedSegmentIndex == 2 {
+        } else if segment == 2 {
             goalList = originalGoalsList.filter { task in task.completed == true }
             goals.reloadData()
         }
+    }
+    
+    func updateActiveGoalCompletedStatus(id: UUID){
+        originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
+        getGoalsList(segment: selectedSegmentIndex)
     }
 }
 
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        originalGoalsList[indexPath.row].updateGoalCompletedStatus()
-        goalList[indexPath.row].updateGoalCompletedStatus()
         cell.configureCell(selected: goalList[indexPath.row].completed)
+        updateActiveGoalCompletedStatus(id: goalList[indexPath.row].id)
         goals.reloadData()
     }
 }
