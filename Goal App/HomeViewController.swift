@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var username: UILabel!
@@ -66,7 +66,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
         updateCompletionRateProgressBar()
@@ -74,7 +74,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-extension MainViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         activeGoals.count
     }
