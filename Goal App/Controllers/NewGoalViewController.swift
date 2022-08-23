@@ -31,6 +31,7 @@ class NewGoalViewController: UIViewController {
         if goalName != nil && goalName != "" {
             goalNameTextField.resignFirstResponder()
             saveNewGoal(task: goalName!, createdDate: dateFor(dateString: goalCreatedDate.date, in: TimeZone.current.identifier), dueDate: dateFor(dateString: goalDueDate.date, in: TimeZone.current.identifier))
+            dismiss(animated: true)
         } else {
             let alert = UIAlertController(title: "Goal Name is Needed", message: "Add proper goal name before saving goal", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .destructive))
@@ -47,7 +48,6 @@ class NewGoalViewController: UIViewController {
     
     func saveNewGoal(task: String, createdDate: String, dueDate: String){
         originalGoalsList.append( Goal(id: UUID(), task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
-        dismiss(animated: true)
     }
 }
 
