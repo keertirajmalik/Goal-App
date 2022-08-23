@@ -49,15 +49,42 @@ class HomeViewController: UIViewController {
         accuracyProgress.setProgressWithAnimation(duration: 0.75, value: 0.95)
         
         updateCompletionRateProgressBar()
-        overDueProgressPercetange.text = "\(Int(activityPercetage * 100))"
+        updateOverDueRateProgressBar()
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
     }
     
     func updateCompletionRateProgressBar() {
+        completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
+        completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
+    }
+    
+    func completionRateCalculator() -> Float{
         let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
         let totoalTaskCount = originalGoalsList.count
-        completionRateProgressPercentage.text = "\(Int(Float(completedTaskCount) / Float(totoalTaskCount) * 100))"
-        completionRateProgress.setProgressWithAnimation(duration: 0.75, value: Float(completedTaskCount) / Float(totoalTaskCount))
+        if totoalTaskCount == 0 {
+            return 0.0
+        }
+        return Float(completedTaskCount) / Float(totoalTaskCount)
+    }
+    
+    func updateOverDueRateProgressBar() {
+        overDueProgressPercetange.text = "\(Int(overDueRateCalculator() * 100))"
+        overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
+    }
+    
+    func overDueRateCalculator() -> Float{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy hh:mm a"
+        
+        let overdueTaskCount = originalGoalsList.filter { task in
+            dateFormatter.date(from: task.goalDueDate) ?? Date() < Date() && task.completed == false
+        }.count
+        let totoalTaskCount = originalGoalsList.count
+        if totoalTaskCount == 0 {
+            return 0.0
+        }
+        
+        return Float(overdueTaskCount) / Float(totoalTaskCount)
     }
     
     func updateActiveGoalCompletedStatus(id: UUID){
@@ -69,7 +96,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
-        updateCompletionRateProgressBar()
+        progressCircleSetup()
         goalTasks.reloadData()
     }
 }
