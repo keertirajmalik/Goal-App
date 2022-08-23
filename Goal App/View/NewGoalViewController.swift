@@ -27,8 +27,15 @@ class NewGoalViewController: UIViewController {
     }
     
     @IBAction func goalSaveButtonClicked(_ sender: UIButton) {
-        goalNameTextField.resignFirstResponder()
-        saveNewGoal(task: goalNameTextField.text!, createdDate: dateFor(dateString: goalCreatedDate.date, in: "IST"), dueDate: dateFor(dateString: goalDueDate.date, in: "IST"))
+        let goalName = goalNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if goalName != nil && goalName != "" {
+            goalNameTextField.resignFirstResponder()
+            saveNewGoal(task: goalName!, createdDate: dateFor(dateString: goalCreatedDate.date, in: "IST"), dueDate: dateFor(dateString: goalDueDate.date, in: "IST"))
+        } else {
+            let alert = UIAlertController(title: "Goal Name is Needed", message: "Add proper goal name before saving goal", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive))
+            self.present(alert, animated: true)
+        }
     }
     
     func dateFor(dateString: Date, in timezone: String) -> String {
