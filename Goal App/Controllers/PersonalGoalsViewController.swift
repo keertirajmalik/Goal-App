@@ -20,7 +20,7 @@ class PersonalGoalsViewController: UIViewController {
         goals.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goals.dataSource = self
         goals.delegate = self
-        
+        goals.showsVerticalScrollIndicator = false
         addNewGoalButton.layer.cornerRadius = addNewGoalButton.frame.width / 2
         addNewGoalButton.layer.masksToBounds = true
     }

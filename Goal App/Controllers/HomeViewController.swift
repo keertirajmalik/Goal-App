@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
         goalTasks.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goalTasks.dataSource = self
         goalTasks.delegate = self
+        goalTasks.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
