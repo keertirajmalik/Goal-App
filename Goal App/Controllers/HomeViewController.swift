@@ -102,17 +102,13 @@ extension HomeViewController{
     }
     
     func overDueRateCalculator() -> Float{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MMM-yyyy hh:mm a"
-        
         let overdueTaskCount = originalGoalsList.filter { task in
-            dateFormatter.date(from: task.goalDueDate) ?? Date() < Date() && task.completed == false
+            task.goalDueDate < Date() && task.completed == false
         }.count
         let totoalTaskCount = originalGoalsList.count
         if totoalTaskCount == 0 {
             return 0.0
         }
-        
         return Float(overdueTaskCount) / Float(totoalTaskCount)
     }
 }

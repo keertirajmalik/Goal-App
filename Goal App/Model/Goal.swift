@@ -11,8 +11,8 @@ struct Goal{
     var id: UUID
     var task: String
     var completed: Bool
-    var goalCreatedDate: String
-    var goalDueDate: String
+    var goalCreatedDate: Date
+    var goalDueDate: Date
     
     mutating func updateGoalCompletedStatus(){
         self.completed.toggle()
@@ -20,10 +20,14 @@ struct Goal{
 }
 
 var originalGoalsList: [Goal] = [
-    Goal(id: UUID(), task: "Write an article or blogpost",completed: false, goalCreatedDate: "23-Aug-2022 12:05 AM", goalDueDate: "30-Aug-2022 12:05 AM"),
-    Goal(id: UUID(), task: "Dribble Concept",completed: false, goalCreatedDate: "23-Aug-2022 12:05 AM", goalDueDate: "30-Aug-2022 12:05 AM"),
-    Goal(id: UUID(), task: "Behance case study",completed: false, goalCreatedDate: "23-Aug-2022 12:05 AM", goalDueDate: "30-Aug-2022 12:05 AM"),
-    Goal(id: UUID(), task: "Behance case study",completed: true, goalCreatedDate: "23-Aug-2022 12:05 AM", goalDueDate: "30-Aug-2022 12:05 AM"),
-    Goal(id: UUID(), task: "Conduct exam",completed: false, goalCreatedDate: "23-Aug-2022 12:05 AM", goalDueDate: "30-Aug-2022 12:05 AM")
+    Goal(id: UUID(), task: "Assoc", completed: false, goalCreatedDate: Date(), goalDueDate: stringToDate(dateString: "2022-08-24T16:54:09+0000")),
+    Goal(id: UUID(), task: "Assoc", completed: false, goalCreatedDate: stringToDate(dateString: "2022-08-23T16:54:09+0000"), goalDueDate: stringToDate(dateString: "2022-08-24T16:54:09+0000")),
+    Goal(id: UUID(), task: "Asdfgh", completed: false, goalCreatedDate: stringToDate(dateString: "2022-08-23T16:54:20+0000"), goalDueDate: stringToDate(dateString: "2022-08-21T16:54:00+0000"))
 ]
 
+
+func stringToDate(dateString: String) -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+    return dateFormatter.date(from: dateString)!
+}
