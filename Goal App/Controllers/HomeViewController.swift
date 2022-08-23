@@ -36,19 +36,6 @@ class HomeViewController: UIViewController {
         goalTasks.reloadData()
         progressCircleSetup()
     }
-    
-    private func progressCircleSetup(){
-        let activityPercetage = Float(0.60)
-        overDueProgress.trackClr = UIColor.systemGray6
-        overDueProgress.progressClr = UIColor.red
-        completionRateProgress.trackClr = UIColor.systemGray6
-        completionRateProgress.progressClr = UIColor.orange
-        accuracyProgress.trackClr = UIColor.systemGray6
-        accuracyProgress.progressClr = UIColor.systemGreen
-        updateCompletionRateProgressBar()
-        updateOverDueRateProgressBar()
-        accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
-    }
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -79,7 +66,20 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController{
-    func updateCompletionRateProgressBar() {
+    private func progressCircleSetup(){
+        let activityPercetage = Float(0.60)
+        overDueProgress.trackClr = UIColor.systemGray6
+        overDueProgress.progressClr = UIColor.red
+        completionRateProgress.trackClr = UIColor.systemGray6
+        completionRateProgress.progressClr = UIColor.orange
+        accuracyProgress.trackClr = UIColor.systemGray6
+        accuracyProgress.progressClr = UIColor.systemGreen
+        updateCompletionRateProgressCircle()
+        updateOverDueRateProgressCircle()
+        accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
+    }
+    
+    func updateCompletionRateProgressCircle() {
         completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
     }
@@ -93,7 +93,7 @@ extension HomeViewController{
         return Float(completedTaskCount) / Float(totoalTaskCount)
     }
     
-    func updateOverDueRateProgressBar() {
+    func updateOverDueRateProgressCircle() {
         overDueProgressPercetange.text = "\(Int(overDueRateCalculator() * 100))"
         overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
     }
