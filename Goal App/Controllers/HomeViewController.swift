@@ -41,13 +41,10 @@ class HomeViewController: UIViewController {
         let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6
         overDueProgress.progressClr = UIColor.red
-        overDueProgress.setProgressWithAnimation(duration: 0.75, value: activityPercetage)
         completionRateProgress.trackClr = UIColor.systemGray6
         completionRateProgress.progressClr = UIColor.orange
         accuracyProgress.trackClr = UIColor.systemGray6
         accuracyProgress.progressClr = UIColor.systemGreen
-        accuracyProgress.setProgressWithAnimation(duration: 0.75, value: 0.95)
-        
         updateCompletionRateProgressBar()
         updateOverDueRateProgressBar()
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
