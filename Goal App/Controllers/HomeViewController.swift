@@ -52,7 +52,36 @@ class HomeViewController: UIViewController {
         updateOverDueRateProgressBar()
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
     }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
+        progressCircleSetup()
+        goalTasks.reloadData()
+    }
     
+    func updateActiveGoalCompletedStatus(id: UUID){
+        originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
+        activeGoals = originalGoalsList.filter { task in task.completed == false }
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        activeGoals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let task = activeGoals[indexPath.row]
+        cell.taskLabel.text = task.task
+        cell.configureCell(selected: task.completed)
+        return cell
+    }
+}
+
+extension HomeViewController{
     func updateCompletionRateProgressBar() {
         completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
@@ -85,32 +114,5 @@ class HomeViewController: UIViewController {
         }
         
         return Float(overdueTaskCount) / Float(totoalTaskCount)
-    }
-    
-    func updateActiveGoalCompletedStatus(id: UUID){
-        originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
-        progressCircleSetup()
-        goalTasks.reloadData()
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        activeGoals.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let task = activeGoals[indexPath.row]
-        cell.taskLabel.text = task.task
-        cell.configureCell(selected: task.completed)
-        return cell
     }
 }
