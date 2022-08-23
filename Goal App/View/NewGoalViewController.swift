@@ -23,6 +23,7 @@ class NewGoalViewController: UIViewController {
         createdDateView.layer.masksToBounds = true
         dueDateView.layer.cornerRadius = 5
         dueDateView.layer.masksToBounds = true
+        goalDueDate.date = Date.init(timeIntervalSinceNow: 60.0 * 60.0 * 24)
     }
     
     @IBAction func goalSaveButtonClicked(_ sender: UIButton) {
