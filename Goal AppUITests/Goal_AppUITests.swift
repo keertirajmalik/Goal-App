@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class Goal_AppUITests: XCTestCase {
+final class GoalAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
