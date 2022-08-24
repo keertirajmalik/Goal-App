@@ -102,6 +102,7 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3352D6442879F2F900441868 /* Main.storyboard */,
 				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
 				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
 				33DEFCE728830FAD00A68414 /* TableViewCell.xib */,
@@ -146,7 +147,6 @@
 				330BD26C288EBBB800866B41 /* Model */,
 				3352D63E2879F2F900441868 /* AppDelegate.swift */,
 				3352D6402879F2F900441868 /* SceneDelegate.swift */,
-				3352D6442879F2F900441868 /* Main.storyboard */,
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
 				3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */,

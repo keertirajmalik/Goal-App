@@ -29,6 +29,11 @@ class HomeViewController: UIViewController {
         goalTasks.dataSource = self
         goalTasks.delegate = self
         goalTasks.showsVerticalScrollIndicator = false
+        
+        profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
+        profileImage?.clipsToBounds = true
+        profileImage?.layer.borderWidth = 3.0
+        profileImage?.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
