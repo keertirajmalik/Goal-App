@@ -9,7 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var overDueProgress: CircularProgressView!
@@ -37,7 +36,7 @@ class MainViewController: UIViewController {
         progressCircleSetup()
     }
     
-    private func progressCircleSetup(){
+    private func progressCircleSetup() {
         let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6
         overDueProgress.progressClr = UIColor.red
@@ -60,7 +59,7 @@ class MainViewController: UIViewController {
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: Float(completedTaskCount) / Float(totoalTaskCount))
     }
     
-    func updateActiveGoalCompletedStatus(id: UUID){
+    func updateActiveGoalCompletedStatus(id: UUID) {
         originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
     }
