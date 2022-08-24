@@ -25,13 +25,12 @@ class PersonalGoalsViewController: UIViewController {
         addNewGoalButton.layer.masksToBounds = true
     }
     
-    
     @IBAction func goalTypeChanged(_ sender: UISegmentedControl) {
         selectedSegmentIndex = sender.selectedSegmentIndex
         getGoalsList(segment: selectedSegmentIndex)
     }
     
-    func getGoalsList(segment: Int){
+    func getGoalsList(segment: Int) {
         if segment == 0 {
             goalList = originalGoalsList
             goals.reloadData()
@@ -44,7 +43,7 @@ class PersonalGoalsViewController: UIViewController {
         }
     }
     
-    func updateActiveGoalCompletedStatus(id: UUID){
+    func updateActiveGoalCompletedStatus(id: UUID) {
         originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
         getGoalsList(segment: selectedSegmentIndex)
     }

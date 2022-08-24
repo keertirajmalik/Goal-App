@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var overDueProgress: CircularProgressView!
@@ -46,7 +45,7 @@ extension HomeViewController: UITableViewDelegate {
         goalTasks.reloadData()
     }
     
-    func updateActiveGoalCompletedStatus(id: UUID){
+    func updateActiveGoalCompletedStatus(id: UUID) {
         originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
     }
@@ -66,8 +65,8 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController{
-    private func progressCircleSetup(){
+extension HomeViewController {
+    private func progressCircleSetup() {
         let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6
         overDueProgress.progressClr = UIColor.red
@@ -85,7 +84,7 @@ extension HomeViewController{
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
     }
     
-    func completionRateCalculator() -> Float{
+    func completionRateCalculator() -> Float {
         let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
         let totoalTaskCount = originalGoalsList.count
         if totoalTaskCount == 0 {
@@ -99,7 +98,7 @@ extension HomeViewController{
         overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
     }
     
-    func overDueRateCalculator() -> Float{
+    func overDueRateCalculator() -> Float {
         let overdueTaskCount = originalGoalsList.filter { task in
             task.goalDueDate < Date() && task.completed == false
         }.count

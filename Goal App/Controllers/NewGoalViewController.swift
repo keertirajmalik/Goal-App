@@ -46,7 +46,7 @@ class NewGoalViewController: UIViewController {
         return dateFormatter.string(from: dateString)
     }
     
-    func saveNewGoal(task: String, createdDate: Date, dueDate: Date){
+    func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         originalGoalsList.append( Goal(id: UUID(), task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
         print(originalGoalsList)
     }
