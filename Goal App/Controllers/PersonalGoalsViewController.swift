@@ -20,7 +20,7 @@ class PersonalGoalsViewController: UIViewController {
         goals.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goals.dataSource = self
         goals.delegate = self
-        
+        goals.showsVerticalScrollIndicator = false
         addNewGoalButton.layer.cornerRadius = addNewGoalButton.frame.width / 2
         addNewGoalButton.layer.masksToBounds = true
     }
@@ -51,8 +51,8 @@ class PersonalGoalsViewController: UIViewController {
 
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        cell.configureCell(selected: goalList[indexPath.row].completed)
+        let cell = tableView.cellForRow(at: indexPath) as? TableViewCell
+        cell?.configureCell(selected: goalList[indexPath.row].completed)
         updateActiveGoalCompletedStatus(id: goalList[indexPath.row].id)
         goals.reloadData()
     }
@@ -64,7 +64,9 @@ extension PersonalGoalsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+            fatalError("DequeueReusableCell failed while casting")
+        }
         let task = goalList[indexPath.row]
         cell.taskLabel.text = task.task
         cell.configureCell(selected: task.completed)
