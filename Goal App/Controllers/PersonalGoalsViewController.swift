@@ -64,10 +64,12 @@ extension PersonalGoalsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+            fatalError("DequeueReusableCell failed while casting")
+        }
         let task = goalList[indexPath.row]
-        cell?.taskLabel.text = task.task
-        cell?.configureCell(selected: task.completed)
-        return cell!
+        cell.taskLabel.text = task.task
+        cell.configureCell(selected: task.completed)
+        return cell
     }
 }
