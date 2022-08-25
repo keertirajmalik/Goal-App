@@ -29,11 +29,7 @@ class HomeViewController: UIViewController {
         goalTasks.dataSource = self
         goalTasks.delegate = self
         goalTasks.showsVerticalScrollIndicator = false
-        
-        profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
-        profileImage?.clipsToBounds = true
-        profileImage?.layer.borderWidth = 3.0
-        profileImage?.layer.borderColor = UIColor.white.cgColor
+        setupProfileView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,15 +58,22 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
         let task = activeGoals[indexPath.row]
-        cell.taskLabel.text = task.task
-        cell.configureCell(selected: task.completed)
-        return cell
+        cell?.taskLabel.text = task.task
+        cell?.configureCell(selected: task.completed)
+        return cell!
     }
 }
 
 extension HomeViewController {
+    func setupProfileView() {
+        profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
+        profileImage?.clipsToBounds = true
+        profileImage?.layer.borderWidth = 3.0
+        profileImage?.layer.borderColor = UIColor.white.cgColor
+    }
+    
     private func progressCircleSetup() {
         let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6

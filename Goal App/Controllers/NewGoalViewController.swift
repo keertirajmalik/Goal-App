@@ -39,16 +39,8 @@ class NewGoalViewController: UIViewController {
         }
     }
     
-    func dateFor(dateString: Date, in timezone: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = .init(abbreviation: timezone)
-        dateFormatter.dateFormat = "dd-MMM-yyyy hh:mm a"
-        return dateFormatter.string(from: dateString)
-    }
-    
     func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         originalGoalsList.append( Goal(id: UUID(), task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
-        print(originalGoalsList)
     }
 }
 

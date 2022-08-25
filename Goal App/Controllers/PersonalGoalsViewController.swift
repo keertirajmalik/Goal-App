@@ -51,8 +51,8 @@ class PersonalGoalsViewController: UIViewController {
 
 extension PersonalGoalsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        cell.configureCell(selected: goalList[indexPath.row].completed)
+        let cell = tableView.cellForRow(at: indexPath) as? TableViewCell
+        cell?.configureCell(selected: goalList[indexPath.row].completed)
         updateActiveGoalCompletedStatus(id: goalList[indexPath.row].id)
         goals.reloadData()
     }
@@ -64,10 +64,10 @@ extension PersonalGoalsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell
         let task = goalList[indexPath.row]
-        cell.taskLabel.text = task.task
-        cell.configureCell(selected: task.completed)
-        return cell
+        cell?.taskLabel.text = task.task
+        cell?.configureCell(selected: task.completed)
+        return cell!
     }
 }
