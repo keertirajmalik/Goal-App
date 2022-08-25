@@ -138,7 +138,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Ott-Qy-dbf" kind="show" id="BX7-aV-qCD"/>
+                                    <segue destination="S67-Ze-rY6" kind="show" id="BX7-aV-qCD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -192,6 +192,80 @@
             </objects>
             <point key="canvasLocation" x="3049" y="-54"/>
         </scene>
+        <!--Personal Goals-->
+        <scene sceneID="wbr-i8-oDw">
+            <objects>
+                <viewController id="S67-Ze-rY6" customClass="PersonalGoalsViewController" customModule="Goal_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="caF-Nx-Ig0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2d4-nP-ovD">
+                                <rect key="frame" x="10" y="165" width="394" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Active"/>
+                                    <segment title="Completed"/>
+                                </segments>
+                                <connections>
+                                    <action selector="goalTypeChanged:" destination="S67-Ze-rY6" eventType="valueChanged" id="ohy-2c-XAg"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHG-Dc-d2h">
+                                <rect key="frame" x="10" y="219" width="394" height="643"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FzK-YN-y58">
+                                        <rect key="frame" x="0.0" y="-11" width="394" height="654"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1U-VW-gjP">
+                                        <rect key="frame" x="330.5" y="579.5" width="43.5" height="43.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="L1U-VW-gjP" secondAttribute="height" multiplier="1:1" id="7SM-wH-PZd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system">
+                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="Arm-Kj-VNf" kind="presentation" identifier="goToAddNewGoalStoryboard" id="6Us-oN-1cg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="FzK-YN-y58" firstAttribute="top" secondItem="hHG-Dc-d2h" secondAttribute="top" constant="-11" id="7pI-Qf-Ufj"/>
+                                    <constraint firstItem="L1U-VW-gjP" firstAttribute="bottom" secondItem="hHG-Dc-d2h" secondAttribute="bottom" constant="-20" id="jJ3-kH-K6T"/>
+                                    <constraint firstItem="L1U-VW-gjP" firstAttribute="trailing" secondItem="hHG-Dc-d2h" secondAttribute="trailing" constant="-20" id="nck-6S-GGu"/>
+                                    <constraint firstItem="L1U-VW-gjP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hHG-Dc-d2h" secondAttribute="leading" constant="20" symbolic="YES" id="r1X-xH-P5C"/>
+                                    <constraint firstItem="FzK-YN-y58" firstAttribute="leading" secondItem="hHG-Dc-d2h" secondAttribute="leading" id="yXD-Cm-ChS"/>
+                                    <constraint firstAttribute="trailing" secondItem="FzK-YN-y58" secondAttribute="trailing" id="yee-CU-1P6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nrp-HF-b15"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nrp-HF-b15" firstAttribute="trailing" secondItem="hHG-Dc-d2h" secondAttribute="trailing" constant="10" id="3Xf-RU-Hob"/>
+                            <constraint firstItem="nrp-HF-b15" firstAttribute="bottom" secondItem="hHG-Dc-d2h" secondAttribute="bottom" id="BZ6-5C-zgT"/>
+                            <constraint firstItem="2d4-nP-ovD" firstAttribute="top" secondItem="hHG-Dc-d2h" secondAttribute="top" constant="-54" id="C2i-lj-IfN"/>
+                            <constraint firstItem="hHG-Dc-d2h" firstAttribute="leading" secondItem="nrp-HF-b15" secondAttribute="leading" constant="10" id="GT3-Rl-aN2"/>
+                            <constraint firstItem="nrp-HF-b15" firstAttribute="bottom" secondItem="FzK-YN-y58" secondAttribute="bottom" id="O4W-TF-oeS"/>
+                            <constraint firstItem="2d4-nP-ovD" firstAttribute="top" secondItem="nrp-HF-b15" secondAttribute="top" constant="25" id="S5P-Up-5sl"/>
+                            <constraint firstItem="nrp-HF-b15" firstAttribute="trailing" secondItem="2d4-nP-ovD" secondAttribute="trailing" constant="10" id="jfl-O4-MKK"/>
+                            <constraint firstItem="2d4-nP-ovD" firstAttribute="leading" secondItem="nrp-HF-b15" secondAttribute="leading" constant="10" id="lgj-zC-xnl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Personal Goals" id="0oa-rs-rWW"/>
+                    <connections>
+                        <outlet property="addNewGoalButton" destination="L1U-VW-gjP" id="87d-K6-eYB"/>
+                        <outlet property="goals" destination="FzK-YN-y58" id="NcR-6F-xxy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Unb-rl-X1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3825.700934579439" y="-54.427645788336939"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qai-pv-tir">
             <objects>
@@ -212,20 +286,22 @@
             </objects>
             <point key="canvasLocation" x="2181" y="-54"/>
         </scene>
-        <!--PersonalGoals-->
-        <scene sceneID="iIV-vf-6hw">
+        <!--AddNewGoal-->
+        <scene sceneID="IkC-IW-P0m">
             <objects>
-                <viewControllerPlaceholder storyboardName="PersonalGoals" id="Ott-Qy-dbf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cAC-mE-fsc"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bFW-bd-fpt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="AddNewGoal" id="Arm-Kj-VNf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zIZ-dE-BhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3825.700934579439" y="-54.427645788336939"/>
+            <point key="canvasLocation" x="4624.6376811594209" y="-54.241071428571423"/>
         </scene>
     </scenes>
     <resources>
         <image name="Face" width="754" height="700"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

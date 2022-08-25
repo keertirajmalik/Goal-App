@@ -21,6 +21,8 @@
 		3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6622879F30100441868 /* Goal_AppUITests.swift */; };
 		3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
+		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
+		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
 		33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DEFCE628830FAD00A68414 /* TableViewCell.swift */; };
 		33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DEFCE728830FAD00A68414 /* TableViewCell.xib */; };
@@ -61,6 +63,8 @@
 		3352D6622879F30100441868 /* Goal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITests.swift; sourceTree = "<group>"; };
 		3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
+		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		33DEFCE628830FAD00A68414 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		33DEFCE728830FAD00A68414 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +106,9 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
+				33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */,
+				33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */,
 				3352D6442879F2F900441868 /* Main.storyboard */,
 				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
 				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
@@ -148,7 +155,6 @@
 				3352D63E2879F2F900441868 /* AppDelegate.swift */,
 				3352D6402879F2F900441868 /* SceneDelegate.swift */,
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
-				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
 				3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */,
 			);
 			path = "Goal App";
@@ -291,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3352D64E2879F2FF00441868 /* LaunchScreen.storyboard in Resources */,
+				33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */,
 				33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */,
+				33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */,
 				3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */,
 				3352D6462879F2F900441868 /* Main.storyboard in Resources */,
 			);
@@ -398,6 +406,14 @@
 				3352D64D2879F2FF00441868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33BA7D5528B7C9000025DCDD /* Base */,
+			);
+			name = AddNewGoal.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
