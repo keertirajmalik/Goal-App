@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S67-Ze-rY6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +13,15 @@
             <objects>
                 <viewController id="S67-Ze-rY6" customClass="PersonalGoalsViewController" customModule="Goal_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="caF-Nx-Ig0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2d4-nP-ovD">
-                                <rect key="frame" x="10" y="165" width="394" height="32"/>
+                                <rect key="frame" x="10" y="69" width="394" height="32"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="Active"/>
+                                    <segment title="Overdue"/>
                                     <segment title="Completed"/>
                                 </segments>
                                 <connections>
@@ -27,14 +29,14 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHG-Dc-d2h">
-                                <rect key="frame" x="10" y="219" width="394" height="643"/>
+                                <rect key="frame" x="10" y="123" width="394" height="739"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FzK-YN-y58">
-                                        <rect key="frame" x="0.0" y="-11" width="394" height="654"/>
+                                        <rect key="frame" x="0.0" y="-11" width="394" height="750"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1U-VW-gjP">
-                                        <rect key="frame" x="330.5" y="579.5" width="43.5" height="43.5"/>
+                                        <rect key="frame" x="330.5" y="675.5" width="43.5" height="43.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="L1U-VW-gjP" secondAttribute="height" multiplier="1:1" id="7SM-wH-PZd"/>
                                         </constraints>

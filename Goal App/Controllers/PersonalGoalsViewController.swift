@@ -38,6 +38,11 @@ class PersonalGoalsViewController: UIViewController {
             goalList = originalGoalsList.filter { task in task.completed == false }
             goals.reloadData()
         } else if segment == 2 {
+            goalList = originalGoalsList.filter { task in
+                task.goalDueDate < Date() && task.completed == false
+            }
+            goals.reloadData()
+        } else if segment == 3 {
             goalList = originalGoalsList.filter { task in task.completed == true }
             goals.reloadData()
         }
