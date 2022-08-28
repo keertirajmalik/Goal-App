@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class NewGoalViewController: UIViewController {
+class AddNewGoalViewController: UIViewController {
+    
+    let database = Firestore.firestore()
     
     @IBOutlet weak var createdDateView: UIView!
     @IBOutlet weak var dueDateView: UIView!
@@ -40,11 +43,14 @@ class NewGoalViewController: UIViewController {
     }
     
     func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
-        originalGoalsList.append( Goal(id: UUID(), task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
+        let id = UUID()
+        originalGoalsList.append( Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
+        let docRef = database.collection("Goals").document(id.uuidString)
+        docRef.setData(["task": task, "completed": false, "goalCreatedDate": createdDate, "goalDueDate": dueDate])
     }
 }
 
-extension NewGoalViewController: UITextFieldDelegate {
+extension AddNewGoalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

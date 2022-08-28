@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tFL-KV-nO5">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,13 +10,13 @@
         <!--Add New Goal-->
         <scene sceneID="0iK-js-548">
             <objects>
-                <viewController storyboardIdentifier="AddNew" id="tFL-KV-nO5" customClass="NewGoalViewController" customModule="Goal_App" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNew" id="tFL-KV-nO5" customClass="AddNewGoalViewController" customModule="Goal_App" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jz-V5-WgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oh-uL-Xi5">
-                                <rect key="frame" x="20" y="69" width="229" height="44"/>
+                                <rect key="frame" x="20" y="25" width="229" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="2WY-L4-517"/>
                                     <constraint firstAttribute="height" constant="44" id="Tye-qA-eLz"/>
@@ -27,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Goal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taQ-HP-oyC">
-                                <rect key="frame" x="20" y="153" width="384" height="52"/>
+                                <rect key="frame" x="20" y="109" width="570" height="52"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="JRP-DT-Kkr"/>
@@ -36,7 +35,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" returnKeyType="done"/>
                             </textField>
                             <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="lBV-Ni-I6O">
-                                <rect key="frame" x="20" y="230" width="384" height="52"/>
+                                <rect key="frame" x="20" y="186" width="570" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-FU-UKb">
                                         <rect key="frame" x="5" y="-1" width="101" height="54"/>
@@ -48,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleAspectFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-PA-JVr">
-                                        <rect key="frame" x="106" y="-1" width="273" height="54"/>
+                                        <rect key="frame" x="106" y="-1" width="459" height="54"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -63,7 +62,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="6dz-eg-Gf3">
-                                <rect key="frame" x="20" y="307" width="384" height="52"/>
+                                <rect key="frame" x="20" y="263" width="570" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plb-f4-SVb">
                                         <rect key="frame" x="5" y="0.0" width="71" height="54"/>
@@ -75,7 +74,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleAspectFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="Gte-K8-9Hr">
-                                        <rect key="frame" x="84" y="0.0" width="295" height="54"/>
+                                        <rect key="frame" x="84" y="0.0" width="481" height="54"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -90,7 +89,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyx-OP-CdF">
-                                <rect key="frame" x="20" y="812" width="384" height="50"/>
+                                <rect key="frame" x="20" y="550" width="570" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ick-e2-XQR"/>
                                 </constraints>
