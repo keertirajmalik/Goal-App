@@ -8,20 +8,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var overDueProgress: CircularProgressView!
-    @IBOutlet weak var overDueProgressPercetange: UILabel!
-    @IBOutlet weak var completionRateProgress: CircularProgressView!
-    @IBOutlet weak var completionRateProgressPercentage: UILabel!
-    @IBOutlet weak var accuracyProgress: CircularProgressView!
-    @IBOutlet weak var accuracyProgressPercentage: UILabel!
-    
-    @IBOutlet weak var goalTasks: UITableView!
-    
+    @IBOutlet var username: UILabel!
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var overDueProgress: CircularProgressView!
+    @IBOutlet var overDueProgressPercetange: UILabel!
+    @IBOutlet var completionRateProgress: CircularProgressView!
+    @IBOutlet var completionRateProgressPercentage: UILabel!
+    @IBOutlet var accuracyProgress: CircularProgressView!
+    @IBOutlet var accuracyProgressPercentage: UILabel!
+
+    @IBOutlet var goalTasks: UITableView!
+
     var activeGoals: [Goal] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,8 +30,8 @@ class HomeViewController: UIViewController {
         goalTasks.showsVerticalScrollIndicator = false
         setupProfileView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
+
+    override func viewWillAppear(_: Bool) {
         activeGoals = originalGoalsList.filter { task in task.completed == false }
         goalTasks.reloadData()
         progressCircleSetup()
@@ -40,23 +39,23 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
         progressCircleSetup()
         goalTasks.reloadData()
     }
-    
+
     func updateActiveGoalCompletedStatus(id: UUID) {
-        originalGoalsList[originalGoalsList.firstIndex(where: {$0.id == id})!].updateGoalCompletedStatus()
+        originalGoalsList[originalGoalsList.firstIndex(where: { $0.id == id })!].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         activeGoals.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
             fatalError("DequeueReusableCell failed while casting")
@@ -75,7 +74,7 @@ extension HomeViewController {
         profileImage?.layer.borderWidth = 3.0
         profileImage?.layer.borderColor = UIColor.white.cgColor
     }
-    
+
     private func progressCircleSetup() {
         let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6
@@ -88,12 +87,12 @@ extension HomeViewController {
         updateOverDueRateProgressCircle()
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
     }
-    
+
     func updateCompletionRateProgressCircle() {
         completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
     }
-    
+
     func completionRateCalculator() -> Float {
         let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
         let totoalTaskCount = originalGoalsList.count
@@ -102,12 +101,12 @@ extension HomeViewController {
         }
         return Float(completedTaskCount) / Float(totoalTaskCount)
     }
-    
+
     func updateOverDueRateProgressCircle() {
         overDueProgressPercetange.text = "\(Int(overDueRateCalculator() * 100))"
         overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
     }
-    
+
     func overDueRateCalculator() -> Float {
         let overdueTaskCount = originalGoalsList.filter { task in
             task.goalDueDate < Date() && task.completed == false
