@@ -13,9 +13,9 @@ struct Goal {
     var completed: Bool
     var goalCreatedDate: Date
     var goalDueDate: Date
-    
+
     mutating func updateGoalCompletedStatus() {
-        self.completed.toggle()
+        completed.toggle()
     }
 }
 
@@ -23,7 +23,7 @@ struct Goal {
 var originalGoalsList: [Goal] = [
     Goal(id: UUID(), task: "Buy More milk", completed: false, goalCreatedDate: Date(), goalDueDate: stringToDate(dateString: "2022-08-24T16:54:09+0000")),
     Goal(id: UUID(), task: "Buy Eggs", completed: false, goalCreatedDate: stringToDate(dateString: "2022-08-23T16:54:09+0000"), goalDueDate: stringToDate(dateString: "2023-08-31T16:54:09+0000")),
-    Goal(id: UUID(), task: "Read a book", completed: false, goalCreatedDate: stringToDate(dateString: "2022-08-23T16:54:20+0000"), goalDueDate: stringToDate(dateString: "2023-08-31T16:54:00+0000"))
+    Goal(id: UUID(), task: "Read a book", completed: false, goalCreatedDate: stringToDate(dateString: "2022-08-23T16:54:20+0000"), goalDueDate: stringToDate(dateString: "2023-08-31T16:54:00+0000")),
 ]
 // swiftlint:enable all
 
