@@ -4,12 +4,10 @@
 //
 //  Created by Keertiraj Laxman Malik on 28/07/22.
 //
-
-import FirebaseFirestore
 import UIKit
 
 class AddNewGoalViewController: UIViewController {
-    let database = Firestore.firestore()
+    let firestoreUtil = FirestoreServiceUtility.shared
 
     @IBOutlet var createdDateView: UIView!
     @IBOutlet var dueDateView: UIView!
@@ -44,8 +42,7 @@ class AddNewGoalViewController: UIViewController {
     func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         let id = UUID()
         originalGoalsList.append(Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
-        let docRef = database.collection("Goals").document(id.uuidString)
-        docRef.setData(["task": task, "completed": false, "goalCreatedDate": createdDate, "goalDueDate": dueDate])
+        firestoreUtil.save(id: id.uuidString, task: task, createdDate: createdDate, dueDate: dueDate)
     }
 }
 
