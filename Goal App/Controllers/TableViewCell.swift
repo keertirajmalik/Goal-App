@@ -24,8 +24,8 @@ class TableViewCell: UITableViewCell {
         contentView.layer.masksToBounds = true
     }
 
-    func configureCell(selected: Bool) {
-        if selected {
+    func configureCell(selected: Bool?) {
+        if selected != nil {
             checkBox?.image = UIImage(systemName: "checkmark.square.fill")
             checkBox?.tintColor = UIColor(rgb: 0x49A4B5)
             taskLabel?.textColor = UIColor.systemGray

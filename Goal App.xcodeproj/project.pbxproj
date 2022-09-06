@@ -21,8 +21,8 @@
 		3352D6592879F30100441868 /* Goal_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6582879F30100441868 /* Goal_AppTests.swift */; };
 		3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6622879F30100441868 /* Goal_AppUITests.swift */; };
 		3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */; };
-		3362D0F128BBC6DF00471A08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3362D0F028BBC6DF00471A08 /* GoogleService-Info.plist */; };
 		3362D0F728BBCE6C00471A08 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3362D0F628BBCE6C00471A08 /* FirebaseFirestore */; };
+		336CAA1928C7BA2400258135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 336CAA1828C7BA2400258135 /* GoogleService-Info.plist */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
@@ -66,7 +66,7 @@
 		3352D65E2879F30100441868 /* Goal AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Goal AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3352D6622879F30100441868 /* Goal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITests.swift; sourceTree = "<group>"; };
 		3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3362D0F028BBC6DF00471A08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		336CAA1828C7BA2400258135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		3352D63D2879F2F900441868 /* Goal App */ = {
 			isa = PBXGroup;
 			children = (
+				336CAA1828C7BA2400258135 /* GoogleService-Info.plist */,
 				330FE64928BD17CA0025BC90 /* Services */,
-				3362D0F028BBC6DF00471A08 /* GoogleService-Info.plist */,
 				33E2FA3628B53B8F0089DA75 /* Controllers */,
 				330BD26E288EBBDC00866B41 /* Extension */,
 				330BD26D288EBBCD00866B41 /* View */,
@@ -315,12 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3352D64E2879F2FF00441868 /* LaunchScreen.storyboard in Resources */,
+				336CAA1928C7BA2400258135 /* GoogleService-Info.plist in Resources */,
 				33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */,
 				33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */,
 				33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */,
 				3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */,
 				3352D6462879F2F900441868 /* Main.storyboard in Resources */,
-				3362D0F128BBC6DF00471A08 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

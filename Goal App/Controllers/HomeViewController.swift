@@ -16,10 +16,18 @@ class HomeViewController: UIViewController {
     @IBOutlet var completionRateProgressPercentage: UILabel!
     @IBOutlet var accuracyProgress: CircularProgressView!
     @IBOutlet var accuracyProgressPercentage: UILabel!
-
     @IBOutlet var goalTasks: UITableView!
+    @IBOutlet var loadingView: UIView! {
+        didSet {
+            loadingView.layer.cornerRadius = 6
+        }
+    }
 
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+
+    var originalGoalsList: [Goal] = []
     var activeGoals: [Goal] = []
+    let firestoreUtil = FirestoreServiceUtility.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +40,37 @@ class HomeViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
+        getGoalsList()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
         goalTasks.reloadData()
         progressCircleSetup()
+    }
+
+    func getGoalsList() {
+        showSpinner()
+        firestoreUtil.getGoals { [weak self] response in
+            switch response {
+            case let .success(goalList):
+                self?.originalGoalsList = goalList
+
+            default:
+                // swiftlint:disable all
+                self?.originalGoalsList = [
+                ]
+                // swiftlint:enable all
+            }
+            self?.goalTasks.reloadData()
+            self?.stopSpinner()
+        }
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "showPersonalGoals" {
+            let controller = segue.destination as? PersonalGoalsViewController
+            controller?.originalGoalsList = originalGoalsList
+        }
     }
 }
 
@@ -45,7 +81,7 @@ extension HomeViewController: UITableViewDelegate {
         goalTasks.reloadData()
     }
 
-    func updateActiveGoalCompletedStatus(id: UUID) {
+    func updateActiveGoalCompletedStatus(id: String) {
         originalGoalsList[originalGoalsList.firstIndex(where: { $0.id == id })!].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
     }
@@ -116,5 +152,17 @@ extension HomeViewController {
             return 0.0
         }
         return Float(overdueTaskCount) / Float(totoalTaskCount)
+    }
+}
+
+extension HomeViewController {
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+    }
+
+    private func stopSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
     }
 }

@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:473683823996:ios:08bbaa6b215e54176928f9</string>
+	<string>1:473683823996:ios:4fde6568140715796928f9</string>
+	<key>DATABASE_URL</key>
+	<string>https://goal-app-53f74-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
