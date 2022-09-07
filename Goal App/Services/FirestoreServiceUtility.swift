@@ -14,7 +14,7 @@ public class FirestoreServiceUtility {
 
     private init() {}
 
-    public func save(id: String, task: String, createdDate: Date, dueDate: Date) {
+    public func create(id: String, task: String, createdDate: Date, dueDate: Date) {
         let documentReference = database.collection("Goals").document(id)
         documentReference.setData(["task": task, "completed": false, "goalCreatedDate": createdDate, "goalDueDate": dueDate])
     }
@@ -24,7 +24,7 @@ public class FirestoreServiceUtility {
             if error == nil {
                 if let snapshot = snapshot {
                     let result = snapshot.documents.map { document in
-                        Goal(id: document.documentID, task: document["task"] as? String ?? "", completed: document["completed"] != nil, goalCreatedDate: document["goalCreatedDate"] as? Date ?? Date.now, goalDueDate: document["goalDueDate"] as? Date ?? Date.now)
+                        Goal(id: document.documentID, task: document["task"] as? String ?? "", completed: document["completed"] as? Bool ?? false, goalCreatedDate: document["goalCreatedDate"] as? Date ?? Date.now, goalDueDate: document["goalDueDate"] as? Date ?? Date.now)
                     }
                     completionHandler(.success(result))
                 }
