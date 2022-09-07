@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     var originalGoalsList: [Goal] = []
-    var activeGoals: [Goal] = []
+    var activeGoals: [Goal]?
     let firestoreUtil = FirestoreServiceUtility.shared
 
     override func viewDidLoad() {
@@ -54,18 +54,18 @@ class HomeViewController: UIViewController {
                 self?.originalGoalsList = goalList
 
             default:
-                // swiftlint:disable all
-                self?.originalGoalsList = [
-                ]
-                // swiftlint:enable all
+                self?.originalGoalsList = []
             }
-            self?.goalTasks.reloadData()
-            self?.stopSpinner()
+            DispatchQueue.main.async { [self] in
+                self?.activeGoals = self?.originalGoalsList.filter { task in task.completed == false }
+                self?.goalTasks.reloadData()
+                self?.progressCircleSetup()
+                self?.stopSpinner()
+            }
         }
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == "showPersonalGoals" {
             let controller = segue.destination as? PersonalGoalsViewController
@@ -76,12 +76,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
+        updateActiveGoalCompletedStatus(id: activeGoals?[indexPath.row].id)
         progressCircleSetup()
         goalTasks.reloadData()
     }
 
-    func updateActiveGoalCompletedStatus(id: String) {
+    func updateActiveGoalCompletedStatus(id: String?) {
         originalGoalsList[originalGoalsList.firstIndex(where: { $0.id == id })!].updateGoalCompletedStatus()
         activeGoals = originalGoalsList.filter { task in task.completed == false }
     }
@@ -89,16 +89,16 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        activeGoals.count
+        activeGoals?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
             fatalError("DequeueReusableCell failed while casting")
         }
-        let task = activeGoals[indexPath.row]
-        cell.taskLabel.text = task.task
-        cell.configureCell(selected: task.completed)
+        let task = activeGoals?[indexPath.row]
+        cell.taskLabel.text = task?.task
+        cell.configureCell(selected: task?.completed)
         return cell
     }
 }

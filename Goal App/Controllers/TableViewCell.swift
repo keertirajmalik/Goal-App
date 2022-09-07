@@ -25,7 +25,7 @@ class TableViewCell: UITableViewCell {
     }
 
     func configureCell(selected: Bool?) {
-        if selected != nil {
+        if selected != nil, selected! {
             checkBox?.image = UIImage(systemName: "checkmark.square.fill")
             checkBox?.tintColor = UIColor(rgb: 0x49A4B5)
             taskLabel?.textColor = UIColor.systemGray
