@@ -43,6 +43,7 @@ class AddNewGoalViewController: UIViewController {
     func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         let id = UUID().uuidString
         originalGoalsList?.append(Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
+        print(originalGoalsList)
         firestoreUtil.create(id: id, task: task, createdDate: createdDate, dueDate: dueDate)
     }
 }
