@@ -17,12 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var accuracyProgress: CircularProgressView!
     @IBOutlet var accuracyProgressPercentage: UILabel!
     @IBOutlet var goalTasks: UITableView!
-    @IBOutlet var loadingView: UIView! {
-        didSet {
-            loadingView.layer.cornerRadius = 6
-        }
-    }
-
+    @IBOutlet var loadingView: UIView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     var originalGoalsList: [Goal]? = []
