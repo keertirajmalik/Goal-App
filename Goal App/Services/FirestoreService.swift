@@ -8,8 +8,8 @@
 import FirebaseFirestore
 import Foundation
 
-public class FirestoreServiceUtility {
-    public static let shared = FirestoreServiceUtility()
+public class FirestoreService {
+    public static let shared = FirestoreService()
     private let database = Firestore.firestore()
 
     private init() {}
@@ -31,6 +31,13 @@ public class FirestoreServiceUtility {
             } else {
                 completionHandler(.failure(error!))
             }
+        }
+    }
+
+    func updateGoalsCompleteStatus(id: String?, completed: Bool) {
+        guard let id = id else { return }
+        database.collection("Goals").document(id).setData(["completed": completed], merge: true) { error in
+            debugPrint(error ?? "Error during UpdateGoalsCompleteStatus to firestore")
         }
     }
 }

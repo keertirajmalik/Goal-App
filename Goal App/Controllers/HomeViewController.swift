@@ -25,9 +25,9 @@ class HomeViewController: UIViewController {
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
-    var originalGoalsList: [Goal] = []
+    var originalGoalsList: [Goal]? = []
     var activeGoals: [Goal]?
-    let firestoreUtil = FirestoreServiceUtility.shared
+    let firestoreUtil = FirestoreService.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         getGoalsList()
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
+        activeGoals = originalGoalsList?.filter { task in task.completed == false }
         goalTasks.reloadData()
         progressCircleSetup()
     }
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
                 self?.originalGoalsList = []
             }
             DispatchQueue.main.async { [self] in
-                self?.activeGoals = self?.originalGoalsList.filter { task in task.completed == false }
+                self?.activeGoals = self?.originalGoalsList?.filter { task in task.completed == false }
                 self?.goalTasks.reloadData()
                 self?.progressCircleSetup()
                 self?.stopSpinner()
@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
     }
 
     // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == "showPersonalGoals" {
             let controller = segue.destination as? PersonalGoalsViewController
@@ -76,14 +77,22 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateActiveGoalCompletedStatus(id: activeGoals?[indexPath.row].id)
+        let id = activeGoals?[indexPath.row].id
+        updateActiveGoalCompletedStatus(id: id)
+        firestoreUtil.updateGoalsCompleteStatus(id: id, completed: true)
         progressCircleSetup()
         goalTasks.reloadData()
     }
 
     func updateActiveGoalCompletedStatus(id: String?) {
-        originalGoalsList[originalGoalsList.firstIndex(where: { $0.id == id })!].updateGoalCompletedStatus()
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
+        if let id = id {
+            if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
+                originalGoalsList?[index].updateGoalCompletedStatus()
+                activeGoals = originalGoalsList?.filter { task in task.completed == false }
+            }
+        } else {
+            return
+        }
     }
 }
 
@@ -130,12 +139,12 @@ extension HomeViewController {
     }
 
     func completionRateCalculator() -> Float {
-        let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
-        let totoalTaskCount = originalGoalsList.count
+        let completedTaskCount = originalGoalsList?.filter { task in task.completed == true }.count
+        let totoalTaskCount = originalGoalsList?.count
         if totoalTaskCount == 0 {
             return 0.0
         }
-        return Float(completedTaskCount) / Float(totoalTaskCount)
+        return Float(completedTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 
     func updateOverDueRateProgressCircle() {
@@ -144,14 +153,14 @@ extension HomeViewController {
     }
 
     func overDueRateCalculator() -> Float {
-        let overdueTaskCount = originalGoalsList.filter { task in
+        let overdueTaskCount = originalGoalsList?.filter { task in
             task.goalDueDate < Date() && task.completed == false
         }.count
-        let totoalTaskCount = originalGoalsList.count
+        let totoalTaskCount = originalGoalsList?.count
         if totoalTaskCount == 0 {
             return 0.0
         }
-        return Float(overdueTaskCount) / Float(totoalTaskCount)
+        return Float(overdueTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 }
 

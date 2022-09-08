@@ -53,8 +53,14 @@ class PersonalGoalsViewController: UIViewController {
     }
 
     func updateActiveGoalCompletedStatus(id: String?) {
-        originalGoalsList![(originalGoalsList?.firstIndex(where: { $0.id == id }))!].updateGoalCompletedStatus()
-        getGoalsList(segment: selectedSegmentIndex)
+        if let id = id {
+            if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
+                originalGoalsList?[index].updateGoalCompletedStatus()
+                getGoalsList(segment: selectedSegmentIndex)
+            } else {
+                return
+            }
+        }
     }
 
     // MARK: - Navigation
