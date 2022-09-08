@@ -4,15 +4,17 @@
 //
 //  Created by Keertiraj Laxman Malik on 28/07/22.
 //
-
 import UIKit
 
-class NewGoalViewController: UIViewController {
+class AddNewGoalViewController: UIViewController {
+    let firestoreUtil = FirestoreService.shared
+
     @IBOutlet var createdDateView: UIView!
     @IBOutlet var dueDateView: UIView!
     @IBOutlet var goalNameTextField: UITextField!
     @IBOutlet var goalCreatedDate: UIDatePicker!
     @IBOutlet var goalDueDate: UIDatePicker!
+    var originalGoalsList: [Goal]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,13 @@ class NewGoalViewController: UIViewController {
     }
 
     func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
-        originalGoalsList.append(Goal(id: UUID(), task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
+        let id = UUID().uuidString
+        originalGoalsList?.append(Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
+        firestoreUtil.create(id: id, task: task, createdDate: createdDate, dueDate: dueDate)
     }
 }
 
-extension NewGoalViewController: UITextFieldDelegate {
+extension AddNewGoalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

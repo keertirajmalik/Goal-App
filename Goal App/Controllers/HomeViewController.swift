@@ -16,10 +16,13 @@ class HomeViewController: UIViewController {
     @IBOutlet var completionRateProgressPercentage: UILabel!
     @IBOutlet var accuracyProgress: CircularProgressView!
     @IBOutlet var accuracyProgressPercentage: UILabel!
-
     @IBOutlet var goalTasks: UITableView!
+    @IBOutlet var loadingView: UIView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
-    var activeGoals: [Goal] = []
+    var originalGoalsList: [Goal]? = []
+    var activeGoals: [Goal]?
+    let firestoreUtil = FirestoreService.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,37 +35,74 @@ class HomeViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
+        getGoalsList()
+        activeGoals = originalGoalsList?.filter { task in task.completed == false }
         goalTasks.reloadData()
         progressCircleSetup()
+    }
+
+    func getGoalsList() {
+        showSpinner()
+        firestoreUtil.getGoals { [weak self] response in
+            switch response {
+            case let .success(goalList):
+                self?.originalGoalsList = goalList
+
+            default:
+                self?.originalGoalsList = []
+            }
+            DispatchQueue.main.async { [self] in
+                self?.activeGoals = self?.originalGoalsList?.filter { task in task.completed == false }
+                self?.goalTasks.reloadData()
+                self?.progressCircleSetup()
+                self?.stopSpinner()
+            }
+        }
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "showPersonalGoals" {
+            let controller = segue.destination as? PersonalGoalsViewController
+            controller?.originalGoalsList = originalGoalsList
+        }
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateActiveGoalCompletedStatus(id: activeGoals[indexPath.row].id)
+        let id = activeGoals?[indexPath.row].id
+        updateActiveGoalCompletedStatus(id: id)
+        firestoreUtil.updateGoalsCompleteStatus(id: id, completed: true)
         progressCircleSetup()
         goalTasks.reloadData()
     }
 
-    func updateActiveGoalCompletedStatus(id: UUID) {
-        originalGoalsList[originalGoalsList.firstIndex(where: { $0.id == id })!].updateGoalCompletedStatus()
-        activeGoals = originalGoalsList.filter { task in task.completed == false }
+    func updateActiveGoalCompletedStatus(id: String?) {
+        if let id = id {
+            if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
+                originalGoalsList?[index].updateGoalCompletedStatus()
+                activeGoals = originalGoalsList?.filter { task in task.completed == false }
+            }
+        } else {
+            return
+        }
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        activeGoals.count
+        activeGoals?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
             fatalError("DequeueReusableCell failed while casting")
         }
-        let task = activeGoals[indexPath.row]
-        cell.taskLabel.text = task.task
-        cell.configureCell(selected: task.completed)
+        let task = activeGoals?[indexPath.row]
+        cell.taskLabel.text = task?.task
+        cell.configureCell(selected: task?.completed)
         return cell
     }
 }
@@ -94,12 +134,12 @@ extension HomeViewController {
     }
 
     func completionRateCalculator() -> Float {
-        let completedTaskCount = originalGoalsList.filter { task in task.completed == true }.count
-        let totoalTaskCount = originalGoalsList.count
+        let completedTaskCount = originalGoalsList?.filter { task in task.completed == true }.count
+        let totoalTaskCount = originalGoalsList?.count
         if totoalTaskCount == 0 {
             return 0.0
         }
-        return Float(completedTaskCount) / Float(totoalTaskCount)
+        return Float(completedTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 
     func updateOverDueRateProgressCircle() {
@@ -108,13 +148,25 @@ extension HomeViewController {
     }
 
     func overDueRateCalculator() -> Float {
-        let overdueTaskCount = originalGoalsList.filter { task in
+        let overdueTaskCount = originalGoalsList?.filter { task in
             task.goalDueDate < Date() && task.completed == false
         }.count
-        let totoalTaskCount = originalGoalsList.count
+        let totoalTaskCount = originalGoalsList?.count
         if totoalTaskCount == 0 {
             return 0.0
         }
-        return Float(overdueTaskCount) / Float(totoalTaskCount)
+        return Float(overdueTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
+    }
+}
+
+extension HomeViewController {
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+    }
+
+    private func stopSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
     }
 }

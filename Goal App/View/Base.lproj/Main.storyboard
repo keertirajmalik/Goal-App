@@ -125,6 +125,24 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
+                            <view contentMode="scaleToFill" id="xEK-2k-zjK">
+                                <rect key="frame" x="10" y="466" width="394" height="397"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-R3-mGI">
+                                        <rect key="frame" x="172" y="173.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LuV-GJ-cVT"/>
+                                            <constraint firstAttribute="width" constant="50" id="VRW-oj-8wY"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ldl-R3-mGI" firstAttribute="centerX" secondItem="xEK-2k-zjK" secondAttribute="centerX" id="6fU-ez-nBd"/>
+                                    <constraint firstItem="Ldl-R3-mGI" firstAttribute="centerY" secondItem="xEK-2k-zjK" secondAttribute="centerY" id="Bkm-c3-gE8"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rm4-KT-Twr">
                                 <rect key="frame" x="10" y="437" width="97" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -138,7 +156,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Ott-Qy-dbf" kind="show" id="BX7-aV-qCD"/>
+                                    <segue destination="Ott-Qy-dbf" kind="show" identifier="showPersonalGoals" id="BX7-aV-qCD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,9 +197,11 @@
                     <connections>
                         <outlet property="accuracyProgress" destination="LsQ-Rx-hiR" id="5ts-vJ-TdE"/>
                         <outlet property="accuracyProgressPercentage" destination="asS-ZX-oGD" id="Gk5-CB-nec"/>
+                        <outlet property="activityIndicator" destination="Ldl-R3-mGI" id="u2w-ev-AtM"/>
                         <outlet property="completionRateProgress" destination="RWn-Ry-yr4" id="1ff-hy-yTH"/>
                         <outlet property="completionRateProgressPercentage" destination="Ev4-Mq-DNr" id="rBK-qk-BLy"/>
                         <outlet property="goalTasks" destination="Kul-yO-hI3" id="Dfc-jc-6F8"/>
+                        <outlet property="loadingView" destination="xEK-2k-zjK" id="QSf-yf-pPF"/>
                         <outlet property="overDueProgress" destination="4Vw-YR-BoH" id="E1e-Ps-ShT"/>
                         <outlet property="overDueProgressPercetange" destination="ekA-iY-7Fl" id="ibp-xt-aNG"/>
                         <outlet property="profileImage" destination="uLL-Ym-kGv" id="utv-Rb-LgC"/>
