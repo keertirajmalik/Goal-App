@@ -34,8 +34,8 @@ public class FirestoreService {
         }
     }
 
-    func updateGoalsCompleteStatus(id: String?, completed: Bool) {
-        guard let id = id else { return }
+    func updateGoalsCompleteStatus(id: String?, completed: Bool?) {
+        guard let id = id, let completed = completed else { return }
         database.collection("Goals").document(id).setData(["completed": completed], merge: true) { error in
             debugPrint(error ?? "Error during UpdateGoalsCompleteStatus to firestore")
         }

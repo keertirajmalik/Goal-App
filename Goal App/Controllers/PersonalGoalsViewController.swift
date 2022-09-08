@@ -13,6 +13,7 @@ class PersonalGoalsViewController: UIViewController {
     var selectedSegmentIndex: Int = 0
     var goalList: [Goal]?
     var originalGoalsList: [Goal]?
+    let firestoreUtil = FirestoreService.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class PersonalGoalsViewController: UIViewController {
         if let id = id {
             if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
                 originalGoalsList?[index].updateGoalCompletedStatus()
+                firestoreUtil.updateGoalsCompleteStatus(id: id, completed: originalGoalsList?[index].completed)
                 getGoalsList(segment: selectedSegmentIndex)
             } else {
                 return
