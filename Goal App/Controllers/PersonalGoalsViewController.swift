@@ -8,12 +8,12 @@
 import UIKit
 
 class PersonalGoalsViewController: UIViewController {
-    @IBOutlet var goals: UITableView!
-    @IBOutlet var addNewGoalButton: UIButton!
-    var selectedSegmentIndex: Int = 0
-    var goalList: [Goal]?
+    @IBOutlet private var goals: UITableView!
+    @IBOutlet private var addNewGoalButton: UIButton!
+    private var selectedSegmentIndex: Int = 0
+    private var goalList: [Goal]?
     var originalGoalsList: [Goal]?
-    let firestoreUtil = FirestoreService.shared
+    private let firestoreUtil = FirestoreService.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class PersonalGoalsViewController: UIViewController {
         getGoalsList(segment: selectedSegmentIndex)
     }
 
-    func getGoalsList(segment: Int) {
+    private func getGoalsList(segment: Int) {
         if segment == 0 {
             goalList = originalGoalsList
             goals.reloadData()
@@ -53,7 +53,7 @@ class PersonalGoalsViewController: UIViewController {
         }
     }
 
-    func updateActiveGoalCompletedStatus(id: String?) {
+    private func updateActiveGoalCompletedStatus(id: String?) {
         if let id = id {
             if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
                 originalGoalsList?[index].updateGoalCompletedStatus()

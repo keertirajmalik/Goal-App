@@ -8,17 +8,17 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet var username: UILabel!
-    @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var overDueProgress: CircularProgressView!
-    @IBOutlet var overDueProgressPercetange: UILabel!
-    @IBOutlet var completionRateProgress: CircularProgressView!
-    @IBOutlet var completionRateProgressPercentage: UILabel!
-    @IBOutlet var accuracyProgress: CircularProgressView!
-    @IBOutlet var accuracyProgressPercentage: UILabel!
-    @IBOutlet var goalTasks: UITableView!
-    @IBOutlet var loadingView: UIView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var username: UILabel!
+    @IBOutlet private var profileImage: UIImageView!
+    @IBOutlet private var overDueProgress: CircularProgressView!
+    @IBOutlet private var overDueProgressPercetange: UILabel!
+    @IBOutlet private var completionRateProgress: CircularProgressView!
+    @IBOutlet private var completionRateProgressPercentage: UILabel!
+    @IBOutlet private var accuracyProgress: CircularProgressView!
+    @IBOutlet private var accuracyProgressPercentage: UILabel!
+    @IBOutlet private var goalTasks: UITableView!
+    @IBOutlet private var loadingView: UIView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
 
     var originalGoalsList: [Goal]? = []
     var activeGoals: [Goal]?
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
         progressCircleSetup()
     }
 
-    func getGoalsList() {
+    private func getGoalsList() {
         showSpinner()
         firestoreUtil.getGoals { [weak self] response in
             switch response {
@@ -108,7 +108,7 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController {
-    func setupProfileView() {
+    private func setupProfileView() {
         profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
         profileImage?.clipsToBounds = true
         profileImage?.layer.borderWidth = 3.0
@@ -128,12 +128,12 @@ extension HomeViewController {
         accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
     }
 
-    func updateCompletionRateProgressCircle() {
+    private func updateCompletionRateProgressCircle() {
         completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
         completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
     }
 
-    func completionRateCalculator() -> Float {
+    private func completionRateCalculator() -> Float {
         let completedTaskCount = originalGoalsList?.filter { task in task.completed == true }.count
         let totoalTaskCount = originalGoalsList?.count
         if totoalTaskCount == 0 {
@@ -142,12 +142,12 @@ extension HomeViewController {
         return Float(completedTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 
-    func updateOverDueRateProgressCircle() {
+    private func updateOverDueRateProgressCircle() {
         overDueProgressPercetange.text = "\(Int(overDueRateCalculator() * 100))"
         overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
     }
 
-    func overDueRateCalculator() -> Float {
+    private func overDueRateCalculator() -> Float {
         let overdueTaskCount = originalGoalsList?.filter { task in
             task.goalDueDate < Date() && task.completed == false
         }.count
