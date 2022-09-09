@@ -101,8 +101,7 @@ extension HomeViewController: UITableViewDataSource {
             fatalError("DequeueReusableCell failed while casting")
         }
         let task = activeGoals?[indexPath.row]
-        cell.taskLabel.text = task?.task
-        cell.configureCell(selected: task?.completed)
+        cell.configureCell(taskName: task?.task, selected: task?.completed)
         return cell
     }
 }
