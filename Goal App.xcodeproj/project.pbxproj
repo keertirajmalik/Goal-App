@@ -23,6 +23,8 @@
 		3362D0F728BBCE6C00471A08 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3362D0F628BBCE6C00471A08 /* FirebaseFirestore */; };
 		336CAA1B28C8AB9600258135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */; };
 		336E5E1528CBB29F0025F245 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 336E5E1428CBB29F0025F245 /* FirebaseAuth */; };
+		336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E5E1628CD015E0025F245 /* LoginViewController.swift */; };
+		336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336E5E1828CD0B330025F245 /* Home.storyboard */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
@@ -66,6 +68,8 @@
 		3352D6622879F30100441868 /* Goal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITests.swift; sourceTree = "<group>"; };
 		3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		336E5E1628CD015E0025F245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		336E5E1928CD0B330025F245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				336E5E1828CD0B330025F245 /* Home.storyboard */,
 				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
 				33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */,
 				33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */,
@@ -198,6 +203,7 @@
 				3352D6422879F2F900441868 /* HomeViewController.swift */,
 				3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */,
 				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
+				336E5E1628CD015E0025F245 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */,
 				3352D6462879F2F900441868 /* Main.storyboard in Resources */,
 				336CAA1B28C8AB9600258135 /* GoogleService-Info.plist in Resources */,
+				336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +383,7 @@
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,
 				3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */,
+				336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +434,14 @@
 				3352D64D2879F2FF00441868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		336E5E1828CD0B330025F245 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				336E5E1928CD0B330025F245 /* Base */,
+			);
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */ = {
