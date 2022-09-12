@@ -23,6 +23,7 @@
 		336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E5E1628CD015E0025F245 /* LoginViewController.swift */; };
 		336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336E5E1828CD0B330025F245 /* Home.storyboard */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
+		33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
@@ -65,6 +66,7 @@
 		336E5E1628CD015E0025F245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		336E5E1928CD0B330025F245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				33D45F972885C47F00167A95 /* UIColor + Extension.swift */,
+				33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,
 				3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */,
 				336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */,
+				33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
