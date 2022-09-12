@@ -103,7 +103,7 @@ extension SignUpViewController {
             signUpButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             signUpButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
 
-            loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 30),
+            loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 10),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 44),
             loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),

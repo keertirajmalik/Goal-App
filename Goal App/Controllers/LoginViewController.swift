@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
 
-            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30),
+            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: 44),
             signUpButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
