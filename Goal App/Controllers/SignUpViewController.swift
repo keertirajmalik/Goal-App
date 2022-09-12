@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTextField.becomeFirstResponder()
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @objc func loginButtonTapped(_: UIButton) {
