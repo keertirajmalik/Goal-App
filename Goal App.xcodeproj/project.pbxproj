@@ -29,6 +29,7 @@
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
 		33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DEFCE628830FAD00A68414 /* TableViewCell.swift */; };
 		33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DEFCE728830FAD00A68414 /* TableViewCell.xib */; };
+		33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1620628CF9BE5001CC1D4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		33DEFCE628830FAD00A68414 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		33DEFCE728830FAD00A68414 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		33E1620628CF9BE5001CC1D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		3352D63D2879F2F900441868 /* Goal App */ = {
 			isa = PBXGroup;
 			children = (
+				33B8E2D328CF9B73005FC980 /* Constants */,
 				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
 				330FE64928BD17CA0025BC90 /* Services */,
 				33E2FA3628B53B8F0089DA75 /* Controllers */,
@@ -172,6 +175,14 @@
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 			);
 			path = "Goal App";
+			sourceTree = "<group>";
+		};
+		33B8E2D328CF9B73005FC980 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				33E1620628CF9BE5001CC1D4 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		33E2FA3628B53B8F0089DA75 /* Controllers */ = {
@@ -358,6 +369,7 @@
 				3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */,
 				3352D6432879F2F900441868 /* HomeViewController.swift in Sources */,
 				3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */,
+				33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */,
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,
 				3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */,
