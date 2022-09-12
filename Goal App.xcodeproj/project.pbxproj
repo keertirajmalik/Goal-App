@@ -17,9 +17,6 @@
 		3352D6462879F2F900441868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3352D6442879F2F900441868 /* Main.storyboard */; };
 		3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3352D64A2879F2FF00441868 /* Assets.xcassets */; };
 		3352D64E2879F2FF00441868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */; };
-		3352D6592879F30100441868 /* Goal_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6582879F30100441868 /* Goal_AppTests.swift */; };
-		3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6622879F30100441868 /* Goal_AppUITests.swift */; };
-		3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */; };
 		3362D0F728BBCE6C00471A08 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3362D0F628BBCE6C00471A08 /* FirebaseFirestore */; };
 		336CAA1B28C8AB9600258135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */; };
 		336E5E1528CBB29F0025F245 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 336E5E1428CBB29F0025F245 /* FirebaseAuth */; };
@@ -63,10 +60,7 @@
 		3352D64A2879F2FF00441868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3352D64D2879F2FF00441868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3352D6542879F30100441868 /* Goal AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Goal AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3352D6582879F30100441868 /* Goal_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppTests.swift; sourceTree = "<group>"; };
 		3352D65E2879F30100441868 /* Goal AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Goal AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3352D6622879F30100441868 /* Goal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITests.swift; sourceTree = "<group>"; };
-		3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		336E5E1628CD015E0025F245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		336E5E1928CD0B330025F245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
@@ -147,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				3352D63D2879F2F900441868 /* Goal App */,
-				3352D6572879F30100441868 /* Goal AppTests */,
-				3352D6612879F30100441868 /* Goal AppUITests */,
 				3352D63C2879F2F900441868 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,23 +169,6 @@
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 			);
 			path = "Goal App";
-			sourceTree = "<group>";
-		};
-		3352D6572879F30100441868 /* Goal AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				3352D6582879F30100441868 /* Goal_AppTests.swift */,
-			);
-			path = "Goal AppTests";
-			sourceTree = "<group>";
-		};
-		3352D6612879F30100441868 /* Goal AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3352D6622879F30100441868 /* Goal_AppUITests.swift */,
-				3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */,
-			);
-			path = "Goal AppUITests";
 			sourceTree = "<group>";
 		};
 		33E2FA3628B53B8F0089DA75 /* Controllers */ = {
@@ -391,7 +366,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3352D6592879F30100441868 /* Goal_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */,
-				3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

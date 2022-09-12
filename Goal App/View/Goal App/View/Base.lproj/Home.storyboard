@@ -214,10 +214,10 @@
         <!--PersonalGoals-->
         <scene sceneID="iIV-vf-6hw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bFW-bd-fpt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="PersonalGoals" id="Ott-Qy-dbf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cAC-mE-fsc"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFW-bd-fpt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3825.700934579439" y="-54.427645788336939"/>
         </scene>
