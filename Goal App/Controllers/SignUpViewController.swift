@@ -18,6 +18,14 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         userNameTextField.becomeFirstResponder()
     }
+    
+    @objc func loginButtonTapped(_: UIButton) {
+        transitionToLogin()
+    }
+    
+    func transitionToLogin() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension SignUpViewController {
@@ -76,6 +84,7 @@ extension SignUpViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
         loginButton.layer.cornerRadius = 5
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
 
         NSLayoutConstraint.activate([
