@@ -12,8 +12,6 @@ public class FirestoreService {
     public static let shared = FirestoreService()
     private let database = Firestore.firestore()
 
-    private init() {}
-
     public func create(id: String, task: String, createdDate: Date, dueDate: Date) {
         let documentReference = database.collection("Goals").document(id)
         documentReference.setData(["task": task, "completed": false, "goalCreatedDate": createdDate, "goalDueDate": dueDate])
