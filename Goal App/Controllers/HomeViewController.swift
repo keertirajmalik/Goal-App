@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet private var username: UILabel!
+    @IBOutlet var username: UILabel!
     @IBOutlet private var profileImage: UIImageView!
     @IBOutlet private var overDueProgress: CircularProgressView!
     @IBOutlet private var overDueProgressPercetange: UILabel!
@@ -32,10 +32,12 @@ class HomeViewController: UIViewController {
         goalTasks.delegate = self
         goalTasks.showsVerticalScrollIndicator = false
         setupProfileView()
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func viewWillAppear(_: Bool) {
         getGoalsList()
+        username.text = "Keertiraj Malik"
         activeGoals = originalGoalsList?.filter { task in task.completed == false }
         goalTasks.reloadData()
         progressCircleSetup()

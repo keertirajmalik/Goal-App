@@ -14,7 +14,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet var checkBox: UIImageView!
 
     static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
 
     override func awakeFromNib() {
