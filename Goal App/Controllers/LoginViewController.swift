@@ -5,17 +5,75 @@
 //  Created by Keertiraj Laxman Malik on 10/09/22.
 //
 
+import FirebaseAuth
 import UIKit
 
 class LoginViewController: UIViewController {
+    let firebaseService = FirebaseAuthService.shared
+
     var loginHeaderlabel: UILabel!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameTextField.becomeFirstResponder()
     }
 
+    func validateFields() -> String? {
+        if userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Please fill in all fields"
+        }
+        return nil
+    }
+
+    @objc func loginButtonTapped(_: UIButton) {
+        let error = validateFields()
+
+        if error != nil {
+            print(error!)
+        } else {
+            Auth.auth().signIn(withEmail: (userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!, password: (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!) { [weak self] _, error in
+                if error != nil {
+                    print(error?.localizedDescription as Any)
+                } else {
+                    self?.transitionToHome()
+                }
+            }
+        }
+    }
+
+    @objc func signUpButtonTapped(_: UIButton) {
+        transitionToSignUp()
+    }
+
+    func transitionToHome() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
+    }
+
+    func transitionToSignUp() {
+        let signUpVC = SignUpViewController()
+        signUpVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(signUpVC, animated: true)
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "goToHomeScreen" {
+            if let homeViewController = segue.destination as? HomeViewController {
+                if let userName = userNameTextField.text {
+                    homeViewController.username.text = userName
+                }
+            }
+        }
+    }
+}
+
+extension LoginViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
@@ -53,6 +111,7 @@ class LoginViewController: UIViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
         loginButton.layer.cornerRadius = 5
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
 
         let signUpButton = UIButton(type: .system)
@@ -61,6 +120,7 @@ class LoginViewController: UIViewController {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.layer.cornerRadius = 5
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
 
         NSLayoutConstraint.activate([
@@ -90,9 +150,4 @@ class LoginViewController: UIViewController {
             signUpButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
         ])
     }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for _: UIStoryboardSegue, sender _: Any?) {}
 }

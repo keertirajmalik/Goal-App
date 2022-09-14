@@ -9,6 +9,8 @@ import FirebaseAuth
 import UIKit
 
 class SignUpViewController: UIViewController {
+    let firebaseService = FirebaseAuthService.shared
+
     var signUpHeaderlabel: UILabel!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
@@ -17,15 +19,48 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTextField.becomeFirstResponder()
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.setHidesBackButton(true, animated: false)
     }
-    
+
+    @objc func signUpButtonTapped(_: UIButton) {
+        let error = validateFields()
+
+        if error != nil {
+            print(error!)
+        } else {
+            Auth.auth().createUser(withEmail: (emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!, password: (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!) { [weak self] _, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self?.transitionToHome()
+                }
+            }
+        }
+    }
+
+    func transitionToHome() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
+    }
+
+    func validateFields() -> String? {
+        if userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Please fill in all fields"
+        }
+
+//        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        return nil
+    }
+
     @objc func loginButtonTapped(_: UIButton) {
         transitionToLogin()
     }
-    
+
     func transitionToLogin() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -77,6 +112,7 @@ extension SignUpViewController {
         signUpButton.tintColor = .white
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.layer.cornerRadius = 5
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
 
         let loginButton = UIButton(type: .system)

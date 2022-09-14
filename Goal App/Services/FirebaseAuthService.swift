@@ -22,12 +22,12 @@ class FirebaseAuthService {
         }
         return errorMessage
     }
-    
+
     public func signUp(email: String, password: String) -> String? {
         var errorMessage: String?
         Auth.auth().createUser(withEmail: email, password: password) { _, error in
-            if error != nil {
-                errorMessage = error?.localizedDescription
+            if let error = error {
+                errorMessage = error.localizedDescription
             }
         }
         return errorMessage
