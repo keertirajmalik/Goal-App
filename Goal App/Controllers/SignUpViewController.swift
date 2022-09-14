@@ -41,8 +41,11 @@ class SignUpViewController: UIViewController {
     func transitionToHome() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+        if let homeViewController = homeViewController {
+            navigationController?.pushViewController(homeViewController, animated: true)
+        } else {
+            fatalError("Failure while transitioning to Home screen")
+        }
     }
 
     func validateFields() -> String? {

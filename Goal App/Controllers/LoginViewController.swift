@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         if let homeViewController = homeViewController {
-            homeViewController.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(homeViewController, animated: true)
         } else {
             fatalError("Failure while transitioning to Home screen")
