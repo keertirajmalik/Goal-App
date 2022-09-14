@@ -9,8 +9,6 @@ import FirebaseAuth
 import UIKit
 
 class LoginViewController: UIViewController {
-    let firebaseService = FirebaseAuthService.shared
-
     var loginHeaderlabel: UILabel!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
