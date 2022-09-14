@@ -18,26 +18,24 @@ class LoginViewController: UIViewController {
         userNameTextField.becomeFirstResponder()
     }
 
-    func validateFields() -> String? {
-        if userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields"
-        }
-        return nil
-    }
-
     @objc func loginButtonTapped(_: UIButton) {
-        let error = validateFields()
+        let request = LoginRequest(userEmail: userNameTextField.text!, userPassword: passwordTextField.text!)
 
-        if error != nil {
-            print(error!)
-        } else {
-            Auth.auth().signIn(withEmail: (userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!, password: (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!) { [weak self] _, error in
-                if error != nil {
-                    print(error?.localizedDescription as Any)
-                } else {
+        let validation = LoginValidation()
+        let validationResult = validation.validate(request: request)
+
+        if validationResult.success {
+            let firebaseAuthService = FirebaseAuthService()
+            firebaseAuthService.authenticateUser(request: request) { [weak self] response in
+                if response?.errorMessage == nil {
                     self?.transitionToHome()
+
+                } else {
+                    debugPrint(response?.errorMessage as Any)
                 }
             }
+        } else {
+            debugPrint(validationResult.errorMessage as Any)
         }
     }
 

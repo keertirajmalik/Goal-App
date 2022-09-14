@@ -23,6 +23,12 @@
 		336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E5E1628CD015E0025F245 /* LoginViewController.swift */; };
 		336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336E5E1828CD0B330025F245 /* Home.storyboard */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
+		3374EDE328D2413000FE9677 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */; };
+		3374EDE528D2418500FE9677 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE428D2418500FE9677 /* LoginRequest.swift */; };
+		3374EDE828D242D300FE9677 /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE728D242D300FE9677 /* LoginValidation.swift */; };
+		3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE928D2439500FE9677 /* ValidationResult.swift */; };
+		3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDEB28D2441600FE9677 /* String + Extension.swift */; };
+		3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDED28D2463A00FE9677 /* LoginResponse.swift */; };
 		33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
@@ -68,6 +74,12 @@
 		336E5E1628CD015E0025F245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		336E5E1928CD0B330025F245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		3374EDE428D2418500FE9677 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		3374EDE728D242D300FE9677 /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		3374EDE928D2439500FE9677 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		3374EDEB28D2441600FE9677 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		3374EDED28D2463A00FE9677 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
@@ -108,6 +120,7 @@
 		330BD26C288EBBB800866B41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3374EDEF28D2464900FE9677 /* Login */,
 				330BD26A288EBBA100866B41 /* Goal.swift */,
 			);
 			path = Model;
@@ -132,6 +145,7 @@
 			children = (
 				33D45F972885C47F00167A95 /* UIColor + Extension.swift */,
 				33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */,
+				3374EDEB28D2441600FE9677 /* String + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				330FE64728BD17B90025BC90 /* FirestoreService.swift */,
+				3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +180,7 @@
 		3352D63D2879F2F900441868 /* Goal App */ = {
 			isa = PBXGroup;
 			children = (
+				3374EDE628D242C500FE9677 /* Validation */,
 				33B8E2D328CF9B73005FC980 /* Constants */,
 				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
 				330FE64928BD17CA0025BC90 /* Services */,
@@ -177,6 +193,24 @@
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 			);
 			path = "Goal App";
+			sourceTree = "<group>";
+		};
+		3374EDE628D242C500FE9677 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				3374EDE728D242D300FE9677 /* LoginValidation.swift */,
+				3374EDE928D2439500FE9677 /* ValidationResult.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		3374EDEF28D2464900FE9677 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3374EDED28D2463A00FE9677 /* LoginResponse.swift */,
+				3374EDE428D2418500FE9677 /* LoginRequest.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		33B8E2D328CF9B73005FC980 /* Constants */ = {
@@ -368,17 +402,23 @@
 				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
+				3374EDE828D242D300FE9677 /* LoginValidation.swift in Sources */,
 				330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */,
 				3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */,
 				3352D6432879F2F900441868 /* HomeViewController.swift in Sources */,
 				3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */,
 				33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */,
 				33E1620928CFA738001CC1D4 /* SignUpViewController.swift in Sources */,
+				3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */,
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
+				3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */,
+				3374EDE328D2413000FE9677 /* FirebaseAuthService.swift in Sources */,
+				3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */,
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,
 				3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */,
 				336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */,
 				33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */,
+				3374EDE528D2418500FE9677 /* LoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
