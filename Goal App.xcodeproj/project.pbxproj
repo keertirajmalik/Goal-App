@@ -32,6 +32,7 @@
 		33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
+		33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CB299228D367FD003D64A5 /* SignUpRequest.swift */; };
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
 		33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DEFCE628830FAD00A68414 /* TableViewCell.swift */; };
 		33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DEFCE728830FAD00A68414 /* TableViewCell.xib */; };
@@ -83,6 +84,7 @@
 		33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
+		33CB299228D367FD003D64A5 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		33DEFCE628830FAD00A68414 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		33DEFCE728830FAD00A68414 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				3374EDEF28D2464900FE9677 /* Login */,
 				330BD26A288EBBA100866B41 /* Goal.swift */,
+				33CB299228D367FD003D64A5 /* SignUpRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			files = (
 				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
+				33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3374EDE828D242D300FE9677 /* Validation.swift in Sources */,
 				330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */,

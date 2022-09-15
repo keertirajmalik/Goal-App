@@ -40,4 +40,13 @@ public class FirestoreService {
             }
         }
     }
+
+    func createUser(user: User) {
+        guard let userName = user.userName, let userEmail = user.email, let uid = user.userId else { return }
+        database.collection("Users").addDocument(data: ["userName": userName, "userEmail": userEmail, "uid": uid]) { error in
+            if let error = error {
+                debugPrint(error)
+            }
+        }
+    }
 }

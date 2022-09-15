@@ -30,8 +30,7 @@ class LoginViewController: UIViewController {
                 let response = await firebaseAuthService.authenticateUser(request: request)
 
                 if response.errorMessage == nil {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.transitionToHome(userName: response.data?.userName)                    }
+                    transitionToHome(userName: response.data?.userName)
                 } else {
                     debugPrint(response.errorMessage as Any)
                 }
@@ -49,7 +48,7 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         if let homeViewController = homeViewController {
-            homeViewController.username.text = userName
+            homeViewController.username?.text = userName
             navigationController?.pushViewController(homeViewController, animated: true)
         } else {
             fatalError("Failure while transitioning to Home screen")
@@ -60,18 +59,6 @@ class LoginViewController: UIViewController {
         let signUpVC = SignUpViewController()
         signUpVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(signUpVC, animated: true)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "goToHomeScreen" {
-            if let homeViewController = segue.destination as? HomeViewController {
-                if let userName = userNameTextField.text {
-                    homeViewController.username.text = userName
-                }
-            }
-        }
     }
 }
 

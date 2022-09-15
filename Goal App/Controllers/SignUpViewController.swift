@@ -21,22 +21,28 @@ class SignUpViewController: UIViewController {
     }
 
     @objc func signUpButtonTapped(_: UIButton) {
-        let error = validateFields()
+        let request = SignUpRequest(userName: userNameTextField.text!, userEmail: emailTextField.text!, userPassword: passwordTextField.text!)
 
-        if error != nil {
-            print(error!)
-        } else {
-            Auth.auth().createUser(withEmail: (emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!, password: (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!) { [weak self] _, error in
-                if let error = error {
-                    print(error.localizedDescription)
+        let validation = Validation()
+        let validationResult = validation.validateSignUp(request: request)
+
+        if validationResult.success {
+            let firebaseAuthService = FirebaseAuthService()
+            Task {
+                let response = await firebaseAuthService.createUser(request: request)
+
+                if response.errorMessage == nil {
+                    transitionToHome(userName: response.data?.userName)
                 } else {
-                    self?.transitionToHome()
+                    debugPrint(response.errorMessage as Any)
                 }
             }
+        } else {
+            debugPrint(validationResult.errorMessage as Any)
         }
     }
 
-    func transitionToHome() {
+    func transitionToHome(userName: String?) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         if let homeViewController = homeViewController {
@@ -44,16 +50,6 @@ class SignUpViewController: UIViewController {
         } else {
             fatalError("Failure while transitioning to Home screen")
         }
-    }
-
-    func validateFields() -> String? {
-        if userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields"
-        }
-
-//        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        return nil
     }
 
     @objc func loginButtonTapped(_: UIButton) {
