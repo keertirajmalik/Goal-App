@@ -25,7 +25,7 @@
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
 		3374EDE328D2413000FE9677 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */; };
 		3374EDE528D2418500FE9677 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE428D2418500FE9677 /* LoginRequest.swift */; };
-		3374EDE828D242D300FE9677 /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE728D242D300FE9677 /* LoginValidation.swift */; };
+		3374EDE828D242D300FE9677 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE728D242D300FE9677 /* Validation.swift */; };
 		3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE928D2439500FE9677 /* ValidationResult.swift */; };
 		3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDEB28D2441600FE9677 /* String + Extension.swift */; };
 		3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDED28D2463A00FE9677 /* LoginResponse.swift */; };
@@ -76,7 +76,7 @@
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		3374EDE428D2418500FE9677 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		3374EDE728D242D300FE9677 /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		3374EDE728D242D300FE9677 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3374EDE928D2439500FE9677 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		3374EDEB28D2441600FE9677 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		3374EDED28D2463A00FE9677 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		3374EDE628D242C500FE9677 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				3374EDE728D242D300FE9677 /* LoginValidation.swift */,
+				3374EDE728D242D300FE9677 /* Validation.swift */,
 				3374EDE928D2439500FE9677 /* ValidationResult.swift */,
 			);
 			path = Validation;
@@ -402,7 +402,7 @@
 				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
-				3374EDE828D242D300FE9677 /* LoginValidation.swift in Sources */,
+				3374EDE828D242D300FE9677 /* Validation.swift in Sources */,
 				330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */,
 				3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */,
 				3352D6432879F2F900441868 /* HomeViewController.swift in Sources */,

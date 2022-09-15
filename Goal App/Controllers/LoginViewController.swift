@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     @objc func loginButtonTapped(_: UIButton) {
         let request = LoginRequest(userEmail: userNameTextField.text!, userPassword: passwordTextField.text!)
 
-        let validation = LoginValidation()
-        let validationResult = validation.validate(request: request)
+        let validation = Validation()
+        let validationResult = validation.validateLogin(request: request)
 
         if validationResult.success {
             let firebaseAuthService = FirebaseAuthService()
@@ -31,8 +31,7 @@ class LoginViewController: UIViewController {
 
                 if response.errorMessage == nil {
                     DispatchQueue.main.async { [weak self] in
-                        self?.transitionToHome()
-                    }
+                        self?.transitionToHome(userName: response.data?.userName)                    }
                 } else {
                     debugPrint(response.errorMessage as Any)
                 }
@@ -46,10 +45,11 @@ class LoginViewController: UIViewController {
         transitionToSignUp()
     }
 
-    func transitionToHome() {
+    func transitionToHome(userName: String?) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
         if let homeViewController = homeViewController {
+            homeViewController.username.text = userName
             navigationController?.pushViewController(homeViewController, animated: true)
         } else {
             fatalError("Failure while transitioning to Home screen")

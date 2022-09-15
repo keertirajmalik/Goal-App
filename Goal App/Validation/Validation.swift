@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct LoginValidation {
-    func validate(request: LoginRequest) -> ValidationResult {
+struct Validation {
+    func validateLogin(request: LoginRequest) -> ValidationResult {
         if request.userEmail.count > 0, request.userPassword.count > 0 {
             if request.userEmail.validateEmail() {
                 return ValidationResult(success: true, errorMessage: nil)
