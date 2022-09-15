@@ -9,11 +9,14 @@ import FirebaseAuth
 import Foundation
 
 struct FirebaseAuthService {
-    func authenticateUser(request: LoginRequest, completionHandler: @escaping (_ result: LoginResponse?) -> Void) {
-        Auth.auth().signIn(withEmail: request.userEmail, password: request.userPassword) { (result: AuthDataResult?, error: Error?) in
-            let user = User(userName: result?.user.displayName, userId: result?.user.uid, email: result?.user.email)
-            let response = LoginResponse(errorMessage: error?.localizedDescription, data: user)
-            _ = completionHandler(response)
+    func authenticateUser(request: LoginRequest) async -> LoginResponse {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: request.userEmail, password: request.userPassword)
+            let user = User(userName: result.user.displayName, userId: result.user.uid, email: result.user.email)
+            return LoginResponse(errorMessage: nil, data: user)
+
+        } catch {
+            return LoginResponse(errorMessage: error.localizedDescription, data: nil)
         }
     }
 }

@@ -26,12 +26,15 @@ class LoginViewController: UIViewController {
 
         if validationResult.success {
             let firebaseAuthService = FirebaseAuthService()
-            firebaseAuthService.authenticateUser(request: request) { [weak self] response in
-                if response?.errorMessage == nil {
-                    self?.transitionToHome()
+            Task {
+                let response = await firebaseAuthService.authenticateUser(request: request)
 
+                if response.errorMessage == nil {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.transitionToHome()
+                    }
                 } else {
-                    debugPrint(response?.errorMessage as Any)
+                    debugPrint(response.errorMessage as Any)
                 }
             }
         } else {
