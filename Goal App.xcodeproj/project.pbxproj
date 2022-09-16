@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		330BD26B288EBBA100866B41 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26A288EBBA100866B41 /* Goal.swift */; };
 		330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */; };
-		3341FE3C2892A5CF00A8D58F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */; };
+		330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330FE64728BD17B90025BC90 /* FirestoreService.swift */; };
+		3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */; };
 		3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D63E2879F2F900441868 /* AppDelegate.swift */; };
 		3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6402879F2F900441868 /* SceneDelegate.swift */; };
-		3352D6432879F2F900441868 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6422879F2F900441868 /* MainViewController.swift */; };
+		3352D6432879F2F900441868 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6422879F2F900441868 /* HomeViewController.swift */; };
 		3352D6462879F2F900441868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3352D6442879F2F900441868 /* Main.storyboard */; };
-		3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */; };
 		3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3352D64A2879F2FF00441868 /* Assets.xcassets */; };
 		3352D64E2879F2FF00441868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */; };
-		3352D6592879F30100441868 /* Goal_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6582879F30100441868 /* Goal_AppTests.swift */; };
-		3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6622879F30100441868 /* Goal_AppUITests.swift */; };
-		3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */; };
+		3362D0F728BBCE6C00471A08 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3362D0F628BBCE6C00471A08 /* FirebaseFirestore */; };
+		336CAA1B28C8AB9600258135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */; };
+		336E5E1528CBB29F0025F245 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 336E5E1428CBB29F0025F245 /* FirebaseAuth */; };
+		336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336E5E1628CD015E0025F245 /* LoginViewController.swift */; };
+		336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336E5E1828CD0B330025F245 /* Home.storyboard */; };
 		336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336EB940287DD5FD009BDA08 /* CircularProgressView.swift */; };
+		3374EDE328D2413000FE9677 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */; };
+		3374EDE528D2418500FE9677 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE428D2418500FE9677 /* LoginRequest.swift */; };
+		3374EDE828D242D300FE9677 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE728D242D300FE9677 /* Validation.swift */; };
+		3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE928D2439500FE9677 /* ValidationResult.swift */; };
+		3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDEB28D2441600FE9677 /* String + Extension.swift */; };
+		3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDED28D2463A00FE9677 /* LoginResponse.swift */; };
+		33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */; };
+		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
+		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
+		33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CB299228D367FD003D64A5 /* SignUpRequest.swift */; };
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
 		33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DEFCE628830FAD00A68414 /* TableViewCell.swift */; };
 		33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DEFCE728830FAD00A68414 /* TableViewCell.xib */; };
+		33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1620628CF9BE5001CC1D4 /* Constants.swift */; };
+		33E1620928CFA738001CC1D4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1620828CFA738001CC1D4 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,24 +60,36 @@
 /* Begin PBXFileReference section */
 		330BD26A288EBBA100866B41 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalsViewController.swift; sourceTree = "<group>"; };
-		3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewGoalViewController.swift; path = View/NewGoalViewController.swift; sourceTree = "<group>"; };
+		330FE64728BD17B90025BC90 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalViewController.swift; sourceTree = "<group>"; };
 		3352D63B2879F2F900441868 /* Goal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3352D63E2879F2F900441868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3352D6402879F2F900441868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3352D6422879F2F900441868 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3352D6422879F2F900441868 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3352D6452879F2F900441868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3352D6482879F2F900441868 /* Goal_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Goal_App.xcdatamodel; sourceTree = "<group>"; };
 		3352D64A2879F2FF00441868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3352D64D2879F2FF00441868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3352D6542879F30100441868 /* Goal AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Goal AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3352D6582879F30100441868 /* Goal_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppTests.swift; sourceTree = "<group>"; };
 		3352D65E2879F30100441868 /* Goal AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Goal AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3352D6622879F30100441868 /* Goal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITests.swift; sourceTree = "<group>"; };
-		3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		336E5E1628CD015E0025F245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		336E5E1928CD0B330025F245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		336EB940287DD5FD009BDA08 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		3374EDE428D2418500FE9677 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		3374EDE728D242D300FE9677 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		3374EDE928D2439500FE9677 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		3374EDEB28D2441600FE9677 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		3374EDED28D2463A00FE9677 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
+		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
+		33CB299228D367FD003D64A5 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		33DEFCE628830FAD00A68414 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		33DEFCE728830FAD00A68414 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		33E1620628CF9BE5001CC1D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		33E1620828CFA738001CC1D4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3362D0F728BBCE6C00471A08 /* FirebaseFirestore in Frameworks */,
+				336E5E1528CBB29F0025F245 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				330BD26A288EBBA100866B41 /* Goal.swift */,
+				3374EDEF28D2464900FE9677 /* Login */,
+				33CB299228D367FD003D64A5 /* SignUpRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,9 +132,12 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
+				33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */,
 				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
-				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
+				336E5E1828CD0B330025F245 /* Home.storyboard */,
+				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
+				3352D6442879F2F900441868 /* Main.storyboard */,
+				33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */,
 				33DEFCE728830FAD00A68414 /* TableViewCell.xib */,
 			);
 			path = View;
@@ -113,17 +146,26 @@
 		330BD26E288EBBDC00866B41 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3374EDEB28D2441600FE9677 /* String + Extension.swift */,
 				33D45F972885C47F00167A95 /* UIColor + Extension.swift */,
+				33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		330FE64928BD17CA0025BC90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */,
+				330FE64728BD17B90025BC90 /* FirestoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3352D6322879F2F900441868 = {
 			isa = PBXGroup;
 			children = (
 				3352D63D2879F2F900441868 /* Goal App */,
-				3352D6572879F30100441868 /* Goal AppTests */,
-				3352D6612879F30100441868 /* Goal AppUITests */,
 				3352D63C2879F2F900441868 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,36 +183,58 @@
 		3352D63D2879F2F900441868 /* Goal App */ = {
 			isa = PBXGroup;
 			children = (
-				330BD26E288EBBDC00866B41 /* Extension */,
-				330BD26D288EBBCD00866B41 /* View */,
-				330BD26C288EBBB800866B41 /* Model */,
 				3352D63E2879F2F900441868 /* AppDelegate.swift */,
-				3352D6402879F2F900441868 /* SceneDelegate.swift */,
-				3352D6422879F2F900441868 /* MainViewController.swift */,
-				3352D6442879F2F900441868 /* Main.storyboard */,
-				3341FE3B2892A5CF00A8D58F /* NewGoalViewController.swift */,
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
-				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
-				3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */,
+				33B8E2D328CF9B73005FC980 /* Constants */,
+				33E2FA3628B53B8F0089DA75 /* Controllers */,
+				330BD26E288EBBDC00866B41 /* Extension */,
+				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
+				330BD26C288EBBB800866B41 /* Model */,
+				3352D6402879F2F900441868 /* SceneDelegate.swift */,
+				330FE64928BD17CA0025BC90 /* Services */,
+				3374EDE628D242C500FE9677 /* Validation */,
+				330BD26D288EBBCD00866B41 /* View */,
 			);
 			path = "Goal App";
 			sourceTree = "<group>";
 		};
-		3352D6572879F30100441868 /* Goal AppTests */ = {
+		3374EDE628D242C500FE9677 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				3352D6582879F30100441868 /* Goal_AppTests.swift */,
+				3374EDE728D242D300FE9677 /* Validation.swift */,
+				3374EDE928D2439500FE9677 /* ValidationResult.swift */,
 			);
-			path = "Goal AppTests";
+			path = Validation;
 			sourceTree = "<group>";
 		};
-		3352D6612879F30100441868 /* Goal AppUITests */ = {
+		3374EDEF28D2464900FE9677 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3352D6622879F30100441868 /* Goal_AppUITests.swift */,
-				3352D6642879F30100441868 /* Goal_AppUITestsLaunchTests.swift */,
+				3374EDED28D2463A00FE9677 /* LoginResponse.swift */,
+				3374EDE428D2418500FE9677 /* LoginRequest.swift */,
 			);
-			path = "Goal AppUITests";
+			path = Login;
+			sourceTree = "<group>";
+		};
+		33B8E2D328CF9B73005FC980 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				33E1620628CF9BE5001CC1D4 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		33E2FA3628B53B8F0089DA75 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */,
+				3352D6422879F2F900441868 /* HomeViewController.swift */,
+				336E5E1628CD015E0025F245 /* LoginViewController.swift */,
+				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
+				33E1620828CFA738001CC1D4 /* SignUpViewController.swift */,
+				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3352D6682879F30100441868 /* Build configuration list for PBXNativeTarget "Goal App" */;
 			buildPhases = (
+				33505EC528B6063E006C304F /* ShellScript */,
 				3352D6372879F2F900441868 /* Sources */,
 				3352D6382879F2F900441868 /* Frameworks */,
 				3352D6392879F2F900441868 /* Resources */,
@@ -189,6 +254,10 @@
 			dependencies = (
 			);
 			name = "Goal App";
+			packageProductDependencies = (
+				3362D0F628BBCE6C00471A08 /* FirebaseFirestore */,
+				336E5E1428CBB29F0025F245 /* FirebaseAuth */,
+			);
 			productName = "Goal App";
 			productReference = 3352D63B2879F2F900441868 /* Goal App.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +330,10 @@
 				Base,
 			);
 			mainGroup = 3352D6322879F2F900441868;
+			packageReferences = (
+				3362D0F528BBCE6C00471A08 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				336E5E1328CBB29F0025F245 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3352D63C2879F2F900441868 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,9 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3352D64E2879F2FF00441868 /* LaunchScreen.storyboard in Resources */,
+				33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */,
 				33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */,
+				33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */,
 				3352D64B2879F2FF00441868 /* Assets.xcassets in Resources */,
 				3352D6462879F2F900441868 /* Main.storyboard in Resources */,
+				336CAA1B28C8AB9600258135 /* GoogleService-Info.plist in Resources */,
+				336E5E1A28CD0B330025F245 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +377,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33505EC528B6063E006C304F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3352D6372879F2F900441868 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -307,14 +404,25 @@
 			files = (
 				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
+				33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
-				3352D6492879F2F900441868 /* Goal_App.xcdatamodeld in Sources */,
-				3341FE3C2892A5CF00A8D58F /* NewGoalViewController.swift in Sources */,
-				3352D6432879F2F900441868 /* MainViewController.swift in Sources */,
+				3374EDE828D242D300FE9677 /* Validation.swift in Sources */,
+				330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */,
+				3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */,
+				3352D6432879F2F900441868 /* HomeViewController.swift in Sources */,
 				3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */,
+				33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */,
+				33E1620928CFA738001CC1D4 /* SignUpViewController.swift in Sources */,
+				3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */,
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
+				3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */,
+				3374EDE328D2413000FE9677 /* FirebaseAuthService.swift in Sources */,
+				3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */,
 				336EB941287DD5FD009BDA08 /* CircularProgressView.swift in Sources */,
 				3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */,
+				336E5E1728CD015E0025F245 /* LoginViewController.swift in Sources */,
+				33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */,
+				3374EDE528D2418500FE9677 /* LoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3352D6592879F30100441868 /* Goal_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +437,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3352D6652879F30100441868 /* Goal_AppUITestsLaunchTests.swift in Sources */,
-				3352D6632879F30100441868 /* Goal_AppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +470,22 @@
 				3352D64D2879F2FF00441868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		336E5E1828CD0B330025F245 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				336E5E1928CD0B330025F245 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33BA7D5528B7C9000025DCDD /* Base */,
+			);
+			name = AddNewGoal.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -663,18 +784,37 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		3352D6472879F2F900441868 /* Goal_App.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3352D6482879F2F900441868 /* Goal_App.xcdatamodel */,
-			);
-			currentVersion = 3352D6482879F2F900441868 /* Goal_App.xcdatamodel */;
-			path = Goal_App.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		3362D0F528BBCE6C00471A08 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
 		};
-/* End XCVersionGroup section */
+		336E5E1328CBB29F0025F245 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3362D0F628BBCE6C00471A08 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3362D0F528BBCE6C00471A08 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		336E5E1428CBB29F0025F245 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3362D0F528BBCE6C00471A08 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3352D6332879F2F900441868 /* Project object */;
 }
