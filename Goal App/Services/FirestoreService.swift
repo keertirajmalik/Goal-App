@@ -12,8 +12,6 @@ public class FirestoreService {
     public static let shared = FirestoreService()
     private let database = Firestore.firestore()
 
-    private init() {}
-
     public func create(id: String, task: String, createdDate: Date, dueDate: Date) {
         let documentReference = database.collection("Goals").document(id)
         documentReference.setData(["task": task, "completed": false, "goalCreatedDate": createdDate, "goalDueDate": dueDate])
@@ -37,7 +35,18 @@ public class FirestoreService {
     func updateGoalsCompleteStatus(id: String?, completed: Bool?) {
         guard let id = id, let completed = completed else { return }
         database.collection("Goals").document(id).setData(["completed": completed], merge: true) { error in
-            debugPrint(error ?? "Error during UpdateGoalsCompleteStatus to firestore")
+            if let error = error {
+                debugPrint(error)
+            }
+        }
+    }
+
+    func createUser(user: User) {
+        guard let userName = user.userName, let userEmail = user.email, let uid = user.userId else { return }
+        database.collection("Users").addDocument(data: ["userName": userName, "userEmail": userEmail, "uid": uid]) { error in
+            if let error = error {
+                debugPrint(error)
+            }
         }
     }
 }

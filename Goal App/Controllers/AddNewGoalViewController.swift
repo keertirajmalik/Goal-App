@@ -9,11 +9,11 @@ import UIKit
 class AddNewGoalViewController: UIViewController {
     let firestoreUtil = FirestoreService.shared
 
-    @IBOutlet var createdDateView: UIView!
-    @IBOutlet var dueDateView: UIView!
-    @IBOutlet var goalNameTextField: UITextField!
-    @IBOutlet var goalCreatedDate: UIDatePicker!
-    @IBOutlet var goalDueDate: UIDatePicker!
+    @IBOutlet private var createdDateView: UIView!
+    @IBOutlet private var dueDateView: UIView!
+    @IBOutlet private var goalNameTextField: UITextField!
+    @IBOutlet private var goalCreatedDate: UIDatePicker!
+    @IBOutlet private var goalDueDate: UIDatePicker!
     var originalGoalsList: [Goal]?
 
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class AddNewGoalViewController: UIViewController {
         goalDueDate.date = Date(timeIntervalSinceNow: 60.0 * 60.0 * 24)
     }
 
-    @IBAction func goalSaveButtonClicked(_: UIButton) {
+    @IBAction private func goalSaveButtonClicked(_: UIButton) {
         let goalName = goalNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if goalName != nil, goalName != "" {
             goalNameTextField.resignFirstResponder()
@@ -40,7 +40,7 @@ class AddNewGoalViewController: UIViewController {
         }
     }
 
-    func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
+    private func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         let id = UUID().uuidString
         originalGoalsList?.append(Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
         firestoreUtil.create(id: id, task: task, createdDate: createdDate, dueDate: dueDate)
