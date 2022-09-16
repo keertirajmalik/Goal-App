@@ -122,8 +122,8 @@
 		330BD26C288EBBB800866B41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3374EDEF28D2464900FE9677 /* Login */,
 				330BD26A288EBBA100866B41 /* Goal.swift */,
+				3374EDEF28D2464900FE9677 /* Login */,
 				33CB299228D367FD003D64A5 /* SignUpRequest.swift */,
 			);
 			path = Model;
@@ -132,12 +132,12 @@
 		330BD26D288EBBCD00866B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */,
+				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
 				336E5E1828CD0B330025F245 /* Home.storyboard */,
 				3352D64C2879F2FF00441868 /* LaunchScreen.storyboard */,
-				33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */,
-				33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */,
 				3352D6442879F2F900441868 /* Main.storyboard */,
-				336EB940287DD5FD009BDA08 /* CircularProgressView.swift */,
+				33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */,
 				33DEFCE728830FAD00A68414 /* TableViewCell.xib */,
 			);
 			path = View;
@@ -146,9 +146,9 @@
 		330BD26E288EBBDC00866B41 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3374EDEB28D2441600FE9677 /* String + Extension.swift */,
 				33D45F972885C47F00167A95 /* UIColor + Extension.swift */,
 				33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */,
-				3374EDEB28D2441600FE9677 /* String + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -156,8 +156,8 @@
 		330FE64928BD17CA0025BC90 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				330FE64728BD17B90025BC90 /* FirestoreService.swift */,
 				3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */,
+				330FE64728BD17B90025BC90 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -183,17 +183,17 @@
 		3352D63D2879F2F900441868 /* Goal App */ = {
 			isa = PBXGroup;
 			children = (
-				3374EDE628D242C500FE9677 /* Validation */,
+				3352D63E2879F2F900441868 /* AppDelegate.swift */,
+				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 				33B8E2D328CF9B73005FC980 /* Constants */,
-				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
-				330FE64928BD17CA0025BC90 /* Services */,
 				33E2FA3628B53B8F0089DA75 /* Controllers */,
 				330BD26E288EBBDC00866B41 /* Extension */,
-				330BD26D288EBBCD00866B41 /* View */,
+				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
 				330BD26C288EBBB800866B41 /* Model */,
-				3352D63E2879F2F900441868 /* AppDelegate.swift */,
 				3352D6402879F2F900441868 /* SceneDelegate.swift */,
-				3352D64A2879F2FF00441868 /* Assets.xcassets */,
+				330FE64928BD17CA0025BC90 /* Services */,
+				3374EDE628D242C500FE9677 /* Validation */,
+				330BD26D288EBBCD00866B41 /* View */,
 			);
 			path = "Goal App";
 			sourceTree = "<group>";
@@ -227,12 +227,12 @@
 		33E2FA3628B53B8F0089DA75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
-				3352D6422879F2F900441868 /* HomeViewController.swift */,
 				3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */,
-				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
+				3352D6422879F2F900441868 /* HomeViewController.swift */,
 				336E5E1628CD015E0025F245 /* LoginViewController.swift */,
+				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
 				33E1620828CFA738001CC1D4 /* SignUpViewController.swift */,
+				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
