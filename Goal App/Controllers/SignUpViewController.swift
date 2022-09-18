@@ -42,14 +42,11 @@ class SignUpViewController: UIViewController {
         }
     }
 
-    func transitionToHome(userName: String?) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        if let homeViewController = homeViewController {
-            navigationController?.pushViewController(homeViewController, animated: true)
-        } else {
-            fatalError("Failure while transitioning to Home screen")
-        }
+    func transitionToHome(userName _: String?) {
+        let tabVC = UITabBarController()
+        tabVC.setViewControllers(MainTabBarController().navigationViewControllers, animated: true)
+        tabVC.modalPresentationStyle = .fullScreen
+        present(tabVC, animated: true)
     }
 
     @objc func loginButtonTapped(_: UIButton) {
@@ -150,7 +147,7 @@ extension SignUpViewController {
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 44),
             loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
     }
 }

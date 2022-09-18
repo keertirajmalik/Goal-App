@@ -10,6 +10,7 @@
 		330BD26B288EBBA100866B41 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26A288EBBA100866B41 /* Goal.swift */; };
 		330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */; };
 		330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330FE64728BD17B90025BC90 /* FirestoreService.swift */; };
+		332B753C28D6CC4B00172113 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B753B28D6CC4B00172113 /* MainTabBarController.swift */; };
 		3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */; };
 		3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D63E2879F2F900441868 /* AppDelegate.swift */; };
 		3352D6412879F2F900441868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3352D6402879F2F900441868 /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		330BD26A288EBBA100866B41 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalsViewController.swift; sourceTree = "<group>"; };
 		330FE64728BD17B90025BC90 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		332B753B28D6CC4B00172113 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalViewController.swift; sourceTree = "<group>"; };
 		3352D63B2879F2F900441868 /* Goal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3352D63E2879F2F900441868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
 				33E1620828CFA738001CC1D4 /* SignUpViewController.swift */,
 				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
+				332B753B28D6CC4B00172113 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			files = (
 				330BD26B288EBBA100866B41 /* Goal.swift in Sources */,
 				330BD270288FFD2000866B41 /* PersonalGoalsViewController.swift in Sources */,
+				332B753C28D6CC4B00172113 /* MainTabBarController.swift in Sources */,
 				33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3374EDE828D242D300FE9677 /* Validation.swift in Sources */,
