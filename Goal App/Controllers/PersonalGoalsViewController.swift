@@ -27,6 +27,9 @@ class PersonalGoalsViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
+        Task {
+            originalGoalsList = await firestoreUtil.getGoals()
+        }
         getGoalsList(segment: selectedSegmentIndex)
     }
 

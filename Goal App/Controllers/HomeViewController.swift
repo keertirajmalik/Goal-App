@@ -45,20 +45,12 @@ class HomeViewController: UIViewController {
 
     private func getGoalsList() {
         showSpinner()
-        firestoreUtil.getGoals { [weak self] response in
-            switch response {
-            case let .success(goalList):
-                self?.originalGoalsList = goalList
-
-            default:
-                self?.originalGoalsList = []
-            }
-            DispatchQueue.main.async { [self] in
-                self?.activeGoals = self?.originalGoalsList?.filter { task in task.completed == false }
-                self?.goalTasks.reloadData()
-                self?.progressCircleSetup()
-                self?.stopSpinner()
-            }
+        Task {
+            originalGoalsList = await firestoreUtil.getGoals()
+            activeGoals = originalGoalsList?.filter { task in task.completed == false }
+            goalTasks.reloadData()
+            progressCircleSetup()
+            stopSpinner()
         }
     }
 
