@@ -24,7 +24,7 @@ public class FirestoreService {
                 Goal(id: document.documentID, task: document["task"] as? String ?? "", completed: document["completed"] as? Bool ?? false, goalCreatedDate: document["goalCreatedDate"] as? Date ?? Date.now, goalDueDate: document["goalDueDate"] as? Date ?? Date.now)
             }
         } catch {
-            return nil
+            return []
         }
     }
 
