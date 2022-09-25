@@ -73,7 +73,7 @@ class PersonalGoalsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == "goToAddNewGoalStoryboard" {
             let controller = segue.destination as? AddNewGoalViewController
-            controller?.originalGoalsList = originalGoals
+            controller?.originalGoals = originalGoals
         }
     }
 }
