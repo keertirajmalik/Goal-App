@@ -13,6 +13,9 @@ class SignUpViewController: UIViewController {
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
     var emailTextField: UITextField!
+    let signUpButton = UIButton(type: .system)
+    let loginButton = UIButton(type: .system)
+    var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,22 +37,24 @@ class SignUpViewController: UIViewController {
                 if response.errorMessage == nil {
                     transitionToHome(userName: response.data?.userName)
                 } else {
-                    debugPrint(response.errorMessage as Any)
+                    showErrorMessage(response.errorMessage)
                 }
             }
         } else {
-            debugPrint(validationResult.errorMessage as Any)
+            showErrorMessage(validationResult.errorMessage)
         }
     }
 
-    func transitionToHome(userName: String?) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        if let homeViewController = homeViewController {
-            navigationController?.pushViewController(homeViewController, animated: true)
-        } else {
-            fatalError("Failure while transitioning to Home screen")
-        }
+    fileprivate func showErrorMessage(_ message: String?) {
+        errorLabel.text = message
+        errorLabel.textColor = .systemRed
+    }
+
+    func transitionToHome(userName _: String?) {
+        let tabVC = UITabBarController()
+        tabVC.setViewControllers(MainTabBarController().navigationViewControllers, animated: true)
+        tabVC.modalPresentationStyle = .fullScreen
+        present(tabVC, animated: true)
     }
 
     @objc func loginButtonTapped(_: UIButton) {
@@ -66,12 +71,25 @@ extension SignUpViewController {
         view = UIView()
         view.backgroundColor = .white
 
+        signUpHeaderlabelView()
+        userNameTextFieldView()
+        emailTextFieldView()
+        passwordTextFieldView()
+        signUpButtonView()
+        loginButtonView()
+        errorlabelView()
+        layoutConstraint()
+    }
+
+    private func signUpHeaderlabelView() {
         signUpHeaderlabel = UILabel()
         signUpHeaderlabel.translatesAutoresizingMaskIntoConstraints = false
         signUpHeaderlabel.font = .systemFont(ofSize: 40, weight: .semibold)
         signUpHeaderlabel.text = "Let's get started!"
         view.addSubview(signUpHeaderlabel)
+    }
 
+    private func userNameTextFieldView() {
         userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "User name"
@@ -81,7 +99,9 @@ extension SignUpViewController {
         userNameTextField.setLeftPaddingPoints(10)
         userNameTextField.setRightPaddingPoints(10)
         view.addSubview(userNameTextField)
+    }
 
+    private func emailTextFieldView() {
         emailTextField = UITextField()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.placeholder = "Email"
@@ -90,8 +110,13 @@ extension SignUpViewController {
         emailTextField.layer.cornerRadius = 5
         emailTextField.setLeftPaddingPoints(10)
         emailTextField.setRightPaddingPoints(10)
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.autocorrectionType = .no
+        emailTextField.autocapitalizationType = .none
         view.addSubview(emailTextField)
+    }
 
+    private func passwordTextFieldView() {
         passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
@@ -101,9 +126,12 @@ extension SignUpViewController {
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.autocapitalizationType = .none
         view.addSubview(passwordTextField)
+    }
 
-        let signUpButton = UIButton(type: .system)
+    private func signUpButtonView() {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.backgroundColor = .black
         signUpButton.tintColor = .white
@@ -111,8 +139,9 @@ extension SignUpViewController {
         signUpButton.layer.cornerRadius = 5
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
+    }
 
-        let loginButton = UIButton(type: .system)
+    private func loginButtonView() {
         loginButton.backgroundColor = .white
         loginButton.tintColor = .black
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +149,19 @@ extension SignUpViewController {
         loginButton.layer.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
+    }
 
+    private func errorlabelView() {
+        errorLabel = UILabel()
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        errorLabel.textColor = .systemRed
+        errorLabel.textAlignment = .center
+        errorLabel.numberOfLines = 0
+        view.addSubview(errorLabel)
+    }
+
+    private func layoutConstraint() {
         NSLayoutConstraint.activate([
             signUpHeaderlabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             signUpHeaderlabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
@@ -140,17 +181,22 @@ extension SignUpViewController {
             passwordTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 52),
 
-            signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
+            signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: 44),
             signUpButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             signUpButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
 
-            loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 10),
+            loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 20),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 44),
             loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
+            errorLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
         ])
     }
 }

@@ -12,6 +12,9 @@ class LoginViewController: UIViewController {
     var loginHeaderlabel: UILabel!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
+    let loginButton = UIButton(type: .system)
+    let signUpButton = UIButton(type: .system)
+    var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,27 +35,28 @@ class LoginViewController: UIViewController {
                 if response.errorMessage == nil {
                     transitionToHome(userName: response.data?.userName)
                 } else {
-                    debugPrint(response.errorMessage as Any)
+                    showErrorMessage(response.errorMessage)
                 }
             }
         } else {
-            debugPrint(validationResult.errorMessage as Any)
+            showErrorMessage(validationResult.errorMessage)
         }
+    }
+
+    fileprivate func showErrorMessage(_ message: String?) {
+        errorLabel.text = message
+        errorLabel.textColor = .systemRed
     }
 
     @objc func signUpButtonTapped(_: UIButton) {
         transitionToSignUp()
     }
 
-    func transitionToHome(userName: String?) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        if let homeViewController = homeViewController {
-            homeViewController.username?.text = userName
-            navigationController?.pushViewController(homeViewController, animated: true)
-        } else {
-            fatalError("Failure while transitioning to Home screen")
-        }
+    func transitionToHome(userName _: String?) {
+        let tabVC = UITabBarController()
+        tabVC.setViewControllers(MainTabBarController().navigationViewControllers, animated: true)
+        tabVC.modalPresentationStyle = .fullScreen
+        present(tabVC, animated: true)
     }
 
     func transitionToSignUp() {
@@ -66,13 +70,24 @@ extension LoginViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
+        loginHeaderLableView()
+        userNameTextFieldView()
+        passwordTextFieldView()
+        loginButtonView()
+        signUpButtonView()
+        errorlabelView()
+        layoutConstraints()
+    }
 
+    private func loginHeaderLableView() {
         loginHeaderlabel = UILabel()
         loginHeaderlabel.translatesAutoresizingMaskIntoConstraints = false
         loginHeaderlabel.font = .systemFont(ofSize: 40, weight: .semibold)
         loginHeaderlabel.text = "Let's get started!"
         view.addSubview(loginHeaderlabel)
+    }
 
+    private func userNameTextFieldView() {
         userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "User name"
@@ -81,8 +96,13 @@ extension LoginViewController {
         userNameTextField.layer.cornerRadius = 5
         userNameTextField.setLeftPaddingPoints(10)
         userNameTextField.setRightPaddingPoints(10)
+        userNameTextField.keyboardType = .emailAddress
+        userNameTextField.autocorrectionType = .no
+        userNameTextField.autocapitalizationType = .none
         view.addSubview(userNameTextField)
+    }
 
+    private func passwordTextFieldView() {
         passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
@@ -92,9 +112,12 @@ extension LoginViewController {
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.autocapitalizationType = .none
         view.addSubview(passwordTextField)
+    }
 
-        let loginButton = UIButton(type: .system)
+    private func loginButtonView() {
         loginButton.backgroundColor = .black
         loginButton.tintColor = .white
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -102,8 +125,9 @@ extension LoginViewController {
         loginButton.layer.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
+    }
 
-        let signUpButton = UIButton(type: .system)
+    private func signUpButtonView() {
         signUpButton.backgroundColor = .white
         signUpButton.tintColor = .black
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
@@ -111,7 +135,19 @@ extension LoginViewController {
         signUpButton.layer.cornerRadius = 5
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
+    }
 
+    private func errorlabelView() {
+        errorLabel = UILabel()
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        errorLabel.textColor = .systemRed
+        errorLabel.textAlignment = .center
+        errorLabel.numberOfLines = 0
+        view.addSubview(errorLabel)
+    }
+
+    private func layoutConstraints() {
         NSLayoutConstraint.activate([
             loginHeaderlabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             loginHeaderlabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
@@ -137,6 +173,11 @@ extension LoginViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: 44),
             signUpButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             signUpButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
+            errorLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 20),
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
         ])
     }
 }

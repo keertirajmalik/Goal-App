@@ -10,5 +10,6 @@ import Foundation
 struct Constants {
     enum Storyboard {
         static let homeViewController = "HomeViewController"
+        static let personalGoalsViewController = "PersonalGoalsViewController"
     }
 }

@@ -11,7 +11,7 @@
         <!--Personal Goals-->
         <scene sceneID="wbr-i8-oDw">
             <objects>
-                <viewController id="S67-Ze-rY6" customClass="PersonalGoalsViewController" customModule="Goal_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalGoalsViewController" id="S67-Ze-rY6" customClass="PersonalGoalsViewController" customModule="Goal_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="caF-Nx-Ig0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

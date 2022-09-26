@@ -20,13 +20,12 @@ class HomeViewController: UIViewController {
     @IBOutlet private var loadingView: UIView!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
 
-    var originalGoalsList: [Goal]? = []
     var activeGoals: [Goal]?
-    let firestoreUtil = FirestoreService.shared
+    var originalGoals: [Goal]?
+    private var goalFetchService: GoalDataFetch = GoalsDataFetchService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         goalTasks.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goalTasks.dataSource = self
         goalTasks.delegate = self
@@ -36,38 +35,14 @@ class HomeViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
-        getGoalsList()
         username.text = "Keertiraj Malik"
-        activeGoals = originalGoalsList?.filter { task in task.completed == false }
-        goalTasks.reloadData()
-        progressCircleSetup()
-    }
-
-    private func getGoalsList() {
         showSpinner()
-        firestoreUtil.getGoals { [weak self] response in
-            switch response {
-            case let .success(goalList):
-                self?.originalGoalsList = goalList
-
-            default:
-                self?.originalGoalsList = []
-            }
-            DispatchQueue.main.async { [self] in
-                self?.activeGoals = self?.originalGoalsList?.filter { task in task.completed == false }
-                self?.goalTasks.reloadData()
-                self?.progressCircleSetup()
-                self?.stopSpinner()
-            }
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "showPersonalGoals" {
-            let controller = segue.destination as? PersonalGoalsViewController
-            controller?.originalGoalsList = originalGoalsList
+        Task {
+            originalGoals = await goalFetchService.fetchAllGoals()
+            activeGoals = await goalFetchService.fetchActiveGoals()
+            goalTasks.reloadData()
+            progressCircleSetup()
+            stopSpinner()
         }
     }
 }
@@ -76,16 +51,16 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = activeGoals?[indexPath.row].id
         updateActiveGoalCompletedStatus(id: id)
-        firestoreUtil.updateGoalsCompleteStatus(id: id, completed: true)
-        progressCircleSetup()
-        goalTasks.reloadData()
     }
 
     func updateActiveGoalCompletedStatus(id: String?) {
         if let id = id {
-            if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
-                originalGoalsList?[index].updateGoalCompletedStatus()
-                activeGoals = originalGoalsList?.filter { task in task.completed == false }
+            if let index = originalGoals?.firstIndex(where: { $0.id == id }) {
+                originalGoals?[index].updateGoalCompletedStatus()
+                activeGoals = originalGoals?.filter { task in task.completed == false }
+                goalFetchService.updateGoalsCompleteStatus(id: id, completed: true)
+                progressCircleSetup()
+                goalTasks.reloadData()
             }
         } else {
             return
@@ -130,33 +105,19 @@ extension HomeViewController {
     }
 
     private func updateCompletionRateProgressCircle() {
-        completionRateProgressPercentage.text = "\(Int(completionRateCalculator() * 100))"
-        completionRateProgress.setProgressWithAnimation(duration: 0.75, value: completionRateCalculator())
-    }
-
-    private func completionRateCalculator() -> Float {
-        let completedTaskCount = originalGoalsList?.filter { task in task.completed == true }.count
-        let totoalTaskCount = originalGoalsList?.count
-        if totoalTaskCount == 0 {
-            return 0.0
+        Task {
+            originalGoals = await goalFetchService.fetchAllGoals()
+            completionRateProgressPercentage.text = "\(Int(goalFetchService.completionRateCalculator(originalGoals: originalGoals) * 100))"
+            completionRateProgress.setProgressWithAnimation(duration: 0.75, value: goalFetchService.completionRateCalculator(originalGoals: originalGoals))
         }
-        return Float(completedTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 
     private func updateOverDueRateProgressCircle() {
-        overDueProgressPercetange.text = "\(Int(overDueRateCalculator() * 100))"
-        overDueProgress.setProgressWithAnimation(duration: 0.75, value: overDueRateCalculator())
-    }
-
-    private func overDueRateCalculator() -> Float {
-        let overdueTaskCount = originalGoalsList?.filter { task in
-            task.goalDueDate < Date() && task.completed == false
-        }.count
-        let totoalTaskCount = originalGoalsList?.count
-        if totoalTaskCount == 0 {
-            return 0.0
+        Task {
+            originalGoals = await goalFetchService.fetchAllGoals()
+            overDueProgressPercetange.text = "\(Int(goalFetchService.overDueRateCalculator(originalGoals: originalGoals) * 100))"
+            overDueProgress.setProgressWithAnimation(duration: 0.75, value: goalFetchService.overDueRateCalculator(originalGoals: originalGoals))
         }
-        return Float(overdueTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
     }
 }
 

@@ -12,8 +12,9 @@ class PersonalGoalsViewController: UIViewController {
     @IBOutlet private var addNewGoalButton: UIButton!
     private var selectedSegmentIndex: Int = 0
     private var goalList: [Goal]?
-    var originalGoalsList: [Goal]?
+    var originalGoals: [Goal]?
     private let firestoreUtil = FirestoreService.shared
+    private var goalFetchService: GoalDataFetch = GoalsDataFetchService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,50 +28,44 @@ class PersonalGoalsViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
-        getGoalsList(segment: selectedSegmentIndex)
+        Task {
+            originalGoals = await goalFetchService.fetchAllGoals()
+            getGoals(segment: selectedSegmentIndex)
+        }
     }
 
     @IBAction func goalTypeChanged(_ sender: UISegmentedControl) {
         selectedSegmentIndex = sender.selectedSegmentIndex
-        getGoalsList(segment: selectedSegmentIndex)
+        getGoals(segment: selectedSegmentIndex)
     }
 
-    private func getGoalsList(segment: Int) {
-        if segment == 0 {
-            goalList = originalGoalsList
-            goals.reloadData()
-        } else if segment == 1 {
-            goalList = originalGoalsList?.filter { task in task.completed == false }
-            goals.reloadData()
-        } else if segment == 2 {
-            goalList = originalGoalsList?.filter { task in
-                task.goalDueDate < Date() && task.completed == false
+    private func getGoals(segment: Int) {
+        Task {
+            if segment == 0 {
+                goalList = await goalFetchService.fetchAllGoals()
+                goals.reloadData()
+            } else if segment == 1 {
+                goalList = await goalFetchService.fetchActiveGoals()
+                goals.reloadData()
+            } else if segment == 2 {
+                goalList = await goalFetchService.fetchOverDueGoals()
+                goals.reloadData()
+            } else if segment == 3 {
+                goalList = await goalFetchService.fetchCompletedGoals()
+                goals.reloadData()
             }
-            goals.reloadData()
-        } else if segment == 3 {
-            goalList = originalGoalsList?.filter { task in task.completed == true }
-            goals.reloadData()
         }
     }
 
     private func updateActiveGoalCompletedStatus(id: String?) {
         if let id = id {
-            if let index = originalGoalsList?.firstIndex(where: { $0.id == id }) {
-                originalGoalsList?[index].updateGoalCompletedStatus()
-                firestoreUtil.updateGoalsCompleteStatus(id: id, completed: originalGoalsList?[index].completed)
-                getGoalsList(segment: selectedSegmentIndex)
+            if let index = originalGoals?.firstIndex(where: { $0.id == id }) {
+                originalGoals?[index].updateGoalCompletedStatus()
+                firestoreUtil.updateGoalsCompleteStatus(id: id, completed: originalGoals?[index].completed)
+                getGoals(segment: selectedSegmentIndex)
             } else {
                 return
             }
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "goToAddNewGoalStoryboard" {
-            let controller = segue.destination as? AddNewGoalViewController
-            controller?.originalGoalsList = originalGoalsList
         }
     }
 }
