@@ -89,6 +89,9 @@ extension LoginViewController {
         userNameTextField.layer.cornerRadius = 5
         userNameTextField.setLeftPaddingPoints(10)
         userNameTextField.setRightPaddingPoints(10)
+        userNameTextField.keyboardType = .emailAddress
+        userNameTextField.autocorrectionType = .no
+        userNameTextField.autocapitalizationType = .none
         view.addSubview(userNameTextField)
     }
 
@@ -102,6 +105,8 @@ extension LoginViewController {
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.autocapitalizationType = .none
         view.addSubview(passwordTextField)
     }
 

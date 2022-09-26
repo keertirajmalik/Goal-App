@@ -103,6 +103,9 @@ extension SignUpViewController {
         emailTextField.layer.cornerRadius = 5
         emailTextField.setLeftPaddingPoints(10)
         emailTextField.setRightPaddingPoints(10)
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.autocorrectionType = .no
+        emailTextField.autocapitalizationType = .none
         view.addSubview(emailTextField)
     }
 
@@ -116,6 +119,8 @@ extension SignUpViewController {
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.autocapitalizationType = .none
         view.addSubview(passwordTextField)
     }
 
