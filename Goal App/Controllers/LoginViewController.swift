@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     var passwordTextField: UITextField!
     let loginButton = UIButton(type: .system)
     let signUpButton = UIButton(type: .system)
+    var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,17 @@ class LoginViewController: UIViewController {
                 if response.errorMessage == nil {
                     transitionToHome(userName: response.data?.userName)
                 } else {
-                    debugPrint(response.errorMessage as Any)
+                    showErrorMessage(response.errorMessage)
                 }
             }
         } else {
-            debugPrint(validationResult.errorMessage as Any)
+            showErrorMessage(validationResult.errorMessage)
         }
+    }
+
+    fileprivate func showErrorMessage(_ message: String?) {
+        errorLabel.text = message
+        errorLabel.textColor = .systemRed
     }
 
     @objc func signUpButtonTapped(_: UIButton) {
@@ -69,6 +75,7 @@ extension LoginViewController {
         passwordTextFieldView()
         loginButtonView()
         signUpButtonView()
+        errorlabelView()
         layoutConstraints()
     }
 
@@ -130,6 +137,16 @@ extension LoginViewController {
         view.addSubview(signUpButton)
     }
 
+    private func errorlabelView() {
+        errorLabel = UILabel()
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        errorLabel.textColor = .systemRed
+        errorLabel.textAlignment = .center
+        errorLabel.numberOfLines = 0
+        view.addSubview(errorLabel)
+    }
+
     private func layoutConstraints() {
         NSLayoutConstraint.activate([
             loginHeaderlabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -156,6 +173,11 @@ extension LoginViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: 44),
             signUpButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             signUpButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
+            errorLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 20),
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
         ])
     }
 }
