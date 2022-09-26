@@ -14,7 +14,6 @@ class AddNewGoalViewController: UIViewController {
     @IBOutlet private var goalNameTextField: UITextField!
     @IBOutlet private var goalCreatedDate: UIDatePicker!
     @IBOutlet private var goalDueDate: UIDatePicker!
-    var originalGoals: [Goal]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,6 @@ class AddNewGoalViewController: UIViewController {
 
     private func saveNewGoal(task: String, createdDate: Date, dueDate: Date) {
         let id = UUID().uuidString
-        originalGoals?.append(Goal(id: id, task: task, completed: false, goalCreatedDate: createdDate, goalDueDate: dueDate))
         firestoreUtil.create(id: id, task: task, createdDate: createdDate, dueDate: dueDate)
     }
 }

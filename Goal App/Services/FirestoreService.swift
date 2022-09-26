@@ -21,7 +21,7 @@ public class FirestoreService {
         do {
             let snapshot = try await database.collection("Goals").getDocuments()
             return snapshot.documents.map { document in
-                Goal(id: document.documentID, task: document["task"] as? String ?? "", completed: document["completed"] as? Bool ?? false, goalCreatedDate: document["goalCreatedDate"] as? Date ?? Date.now, goalDueDate: document["goalDueDate"] as? Date ?? Date.now)
+                Goal(id: document.documentID, task: document["task"] as? String ?? "", completed: document["completed"] as? Bool ?? false, goalCreatedDate: (document["goalCreatedDate"] as? Timestamp)?.dateValue() ?? Date(), goalDueDate: (document["goalDueDate"] as? Timestamp)?.dateValue() ?? Date())
             }
         } catch {
             return []

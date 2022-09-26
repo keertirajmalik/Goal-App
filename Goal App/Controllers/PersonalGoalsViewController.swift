@@ -14,6 +14,7 @@ class PersonalGoalsViewController: UIViewController {
     private var goalList: [Goal]?
     var originalGoals: [Goal]?
     private let firestoreUtil = FirestoreService.shared
+    private var goalFetchService: GoalDataFetch = GoalsDataFetchService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class PersonalGoalsViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         Task {
-            originalGoals = await firestoreUtil.getGoals()
+            originalGoals = await goalFetchService.fetchAllGoals()
             getGoals(segment: selectedSegmentIndex)
         }
     }
@@ -39,20 +40,20 @@ class PersonalGoalsViewController: UIViewController {
     }
 
     private func getGoals(segment: Int) {
-        if segment == 0 {
-            goalList = originalGoals
-            goals.reloadData()
-        } else if segment == 1 {
-            goalList = originalGoals?.filter { task in task.completed == false }
-            goals.reloadData()
-        } else if segment == 2 {
-            goalList = originalGoals?.filter { task in
-                task.goalDueDate < Date() && task.completed == false
+        Task {
+            if segment == 0 {
+                goalList = await goalFetchService.fetchAllGoals()
+                goals.reloadData()
+            } else if segment == 1 {
+                goalList = await goalFetchService.fetchActiveGoals()
+                goals.reloadData()
+            } else if segment == 2 {
+                goalList = await goalFetchService.fetchOverDueGoals()
+                goals.reloadData()
+            } else if segment == 3 {
+                goalList = await goalFetchService.fetchCompletedGoals()
+                goals.reloadData()
             }
-            goals.reloadData()
-        } else if segment == 3 {
-            goalList = originalGoals?.filter { task in task.completed == true }
-            goals.reloadData()
         }
     }
 
@@ -65,15 +66,6 @@ class PersonalGoalsViewController: UIViewController {
             } else {
                 return
             }
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "goToAddNewGoalStoryboard" {
-            let controller = segue.destination as? AddNewGoalViewController
-            controller?.originalGoals = originalGoals
         }
     }
 }

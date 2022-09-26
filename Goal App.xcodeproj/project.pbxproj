@@ -35,6 +35,7 @@
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
 		33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CB299228D367FD003D64A5 /* SignUpRequest.swift */; };
 		33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D45F972885C47F00167A95 /* UIColor + Extension.swift */; };
+		33DDDA4328E0D236005DFE11 /* GoalsDataFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDDA4228E0D236005DFE11 /* GoalsDataFetchService.swift */; };
 		33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DEFCE628830FAD00A68414 /* TableViewCell.swift */; };
 		33DEFCE928830FAE00A68414 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DEFCE728830FAD00A68414 /* TableViewCell.xib */; };
 		33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E1620628CF9BE5001CC1D4 /* Constants.swift */; };
@@ -88,6 +89,7 @@
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
 		33CB299228D367FD003D64A5 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		33D45F972885C47F00167A95 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		33DDDA4228E0D236005DFE11 /* GoalsDataFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDataFetchService.swift; sourceTree = "<group>"; };
 		33DEFCE628830FAD00A68414 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		33DEFCE728830FAD00A68414 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		33E1620628CF9BE5001CC1D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				3374EDE228D2413000FE9677 /* FirebaseAuthService.swift */,
 				330FE64728BD17B90025BC90 /* FirestoreService.swift */,
+				33DDDA4228E0D236005DFE11 /* GoalsDataFetchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				3352D63F2879F2F900441868 /* AppDelegate.swift in Sources */,
 				33E1620728CF9BE5001CC1D4 /* Constants.swift in Sources */,
 				33E1620928CFA738001CC1D4 /* SignUpViewController.swift in Sources */,
+				33DDDA4328E0D236005DFE11 /* GoalsDataFetchService.swift in Sources */,
 				3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */,
 				33DEFCE828830FAE00A68414 /* TableViewCell.swift in Sources */,
 				3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */,
