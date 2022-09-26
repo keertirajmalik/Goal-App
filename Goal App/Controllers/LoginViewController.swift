@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     var loginHeaderlabel: UILabel!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
+    let loginButton = UIButton(type: .system)
+    let signUpButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +64,23 @@ extension LoginViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
+        loginHeaderLableView()
+        userNameTextFieldView()
+        passwordTextFieldView()
+        loginButtonView()
+        signUpButtonView()
+        layoutConstraints()
+    }
 
+    private func loginHeaderLableView() {
         loginHeaderlabel = UILabel()
         loginHeaderlabel.translatesAutoresizingMaskIntoConstraints = false
         loginHeaderlabel.font = .systemFont(ofSize: 40, weight: .semibold)
         loginHeaderlabel.text = "Let's get started!"
         view.addSubview(loginHeaderlabel)
+    }
 
+    private func userNameTextFieldView() {
         userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "User name"
@@ -78,7 +90,9 @@ extension LoginViewController {
         userNameTextField.setLeftPaddingPoints(10)
         userNameTextField.setRightPaddingPoints(10)
         view.addSubview(userNameTextField)
+    }
 
+    private func passwordTextFieldView() {
         passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
@@ -89,8 +103,9 @@ extension LoginViewController {
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
         view.addSubview(passwordTextField)
+    }
 
-        let loginButton = UIButton(type: .system)
+    private func loginButtonView() {
         loginButton.backgroundColor = .black
         loginButton.tintColor = .white
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -98,8 +113,9 @@ extension LoginViewController {
         loginButton.layer.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
+    }
 
-        let signUpButton = UIButton(type: .system)
+    private func signUpButtonView() {
         signUpButton.backgroundColor = .white
         signUpButton.tintColor = .black
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +123,9 @@ extension LoginViewController {
         signUpButton.layer.cornerRadius = 5
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
+    }
 
+    private func layoutConstraints() {
         NSLayoutConstraint.activate([
             loginHeaderlabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             loginHeaderlabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
