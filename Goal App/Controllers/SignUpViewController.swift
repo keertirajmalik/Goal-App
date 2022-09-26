@@ -13,6 +13,8 @@ class SignUpViewController: UIViewController {
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
     var emailTextField: UITextField!
+    let signUpButton = UIButton(type: .system)
+    let loginButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +65,24 @@ extension SignUpViewController {
         view = UIView()
         view.backgroundColor = .white
 
+        signUpHeaderlabelView()
+        userNameTextFieldView()
+        emailTextFieldView()
+        passwordTextFieldView()
+        signUpButtonView()
+        loginButtonView()
+        layoutConstraint()
+    }
+
+    private func signUpHeaderlabelView() {
         signUpHeaderlabel = UILabel()
         signUpHeaderlabel.translatesAutoresizingMaskIntoConstraints = false
         signUpHeaderlabel.font = .systemFont(ofSize: 40, weight: .semibold)
         signUpHeaderlabel.text = "Let's get started!"
         view.addSubview(signUpHeaderlabel)
+    }
 
+    private func userNameTextFieldView() {
         userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "User name"
@@ -78,7 +92,9 @@ extension SignUpViewController {
         userNameTextField.setLeftPaddingPoints(10)
         userNameTextField.setRightPaddingPoints(10)
         view.addSubview(userNameTextField)
+    }
 
+    private func emailTextFieldView() {
         emailTextField = UITextField()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.placeholder = "Email"
@@ -88,7 +104,9 @@ extension SignUpViewController {
         emailTextField.setLeftPaddingPoints(10)
         emailTextField.setRightPaddingPoints(10)
         view.addSubview(emailTextField)
+    }
 
+    private func passwordTextFieldView() {
         passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
@@ -99,8 +117,9 @@ extension SignUpViewController {
         passwordTextField.setLeftPaddingPoints(10)
         passwordTextField.setRightPaddingPoints(10)
         view.addSubview(passwordTextField)
+    }
 
-        let signUpButton = UIButton(type: .system)
+    private func signUpButtonView() {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.backgroundColor = .black
         signUpButton.tintColor = .white
@@ -108,8 +127,9 @@ extension SignUpViewController {
         signUpButton.layer.cornerRadius = 5
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         view.addSubview(signUpButton)
+    }
 
-        let loginButton = UIButton(type: .system)
+    private func loginButtonView() {
         loginButton.backgroundColor = .white
         loginButton.tintColor = .black
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +137,9 @@ extension SignUpViewController {
         loginButton.layer.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         view.addSubview(loginButton)
+    }
 
+    private func layoutConstraint() {
         NSLayoutConstraint.activate([
             signUpHeaderlabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             signUpHeaderlabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
