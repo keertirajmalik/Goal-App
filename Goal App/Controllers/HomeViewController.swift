@@ -92,7 +92,6 @@ extension HomeViewController {
     }
 
     private func progressCircleSetup() {
-        let activityPercetage = Float(0.60)
         overDueProgress.trackClr = UIColor.systemGray6
         overDueProgress.progressClr = UIColor.red
         completionRateProgress.trackClr = UIColor.systemGray6
@@ -101,7 +100,7 @@ extension HomeViewController {
         accuracyProgress.progressClr = UIColor.systemGreen
         updateCompletionRateProgressCircle()
         updateOverDueRateProgressCircle()
-        accuracyProgressPercentage.text = "\(Int(activityPercetage * 100))"
+        updateAccuracyRateProgressCircle()
     }
 
     private func updateCompletionRateProgressCircle() {
@@ -117,6 +116,14 @@ extension HomeViewController {
             originalGoals = await goalFetchService.fetchAllGoals()
             overDueProgressPercetange.text = "\(Int(goalFetchService.overDueRateCalculator(originalGoals: originalGoals) * 100))"
             overDueProgress.setProgressWithAnimation(duration: 0.75, value: goalFetchService.overDueRateCalculator(originalGoals: originalGoals))
+        }
+    }
+
+    private func updateAccuracyRateProgressCircle() {
+        Task {
+            originalGoals = await goalFetchService.fetchAllGoals()
+            accuracyProgressPercentage.text = "\(Int(goalFetchService.accuracyRateCalculator(originalGoals: originalGoals) * 100))"
+            accuracyProgress.setProgressWithAnimation(duration: 0.75, value: goalFetchService.accuracyRateCalculator(originalGoals: originalGoals))
         }
     }
 }
