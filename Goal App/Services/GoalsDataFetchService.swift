@@ -15,6 +15,7 @@ protocol GoalDataFetch {
     func completionRateCalculator(originalGoals: [Goal]?) -> Float
     func overDueRateCalculator(originalGoals: [Goal]?) -> Float
     func updateGoalsCompleteStatus(id: String?, completed: Bool?)
+    func accuracyRateCalculator(originalGoals: [Goal]?) -> Float
 }
 
 class GoalsDataFetchService: GoalDataFetch {
@@ -53,14 +54,26 @@ class GoalsDataFetchService: GoalDataFetch {
     }
 
     func overDueRateCalculator(originalGoals: [Goal]?) -> Float {
-        let overdueTaskCount = originalGoals?.filter { task in
+        let overdueGoalCount = originalGoals?.filter { task in
             task.goalDueDate > Date() && task.completed == false
         }.count
-        let totoalTaskCount = originalGoals?.count
-        if totoalTaskCount == 0 {
+        let totoalGoalCount = originalGoals?.count
+        if totoalGoalCount == 0 {
             return 0
         }
-        return Float(overdueTaskCount ?? 0) / Float(totoalTaskCount ?? 0)
+        return Float(overdueGoalCount ?? 0) / Float(totoalGoalCount ?? 0)
+    }
+
+    func accuracyRateCalculator(originalGoals: [Goal]?) -> Float {
+        let overdueGoalCount = originalGoals?.filter { task in
+            task.goalDueDate > Date() && task.completed == false
+        }.count ?? 0
+        let completedGoalCount = originalGoals?.filter { task in task.completed == true }.count ?? 0
+        let totoalGoalCount = originalGoals?.count ?? 0
+        if totoalGoalCount == 0 {
+            return 0
+        }
+        return Float(completedGoalCount - overdueGoalCount) / Float(totoalGoalCount)
     }
 
     func updateGoalsCompleteStatus(id: String?, completed: Bool?) {
