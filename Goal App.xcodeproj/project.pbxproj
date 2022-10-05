@@ -30,6 +30,7 @@
 		3374EDEA28D2439500FE9677 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDE928D2439500FE9677 /* ValidationResult.swift */; };
 		3374EDEC28D2441600FE9677 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDEB28D2441600FE9677 /* String + Extension.swift */; };
 		3374EDEE28D2463A00FE9677 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374EDED28D2463A00FE9677 /* LoginResponse.swift */; };
+		33A024B728E36A0B00FF199B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A024B628E36A0B00FF199B /* ProfileViewController.swift */; };
 		33B8E2D228CF4EF5005FC980 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */; };
 		33BA7D5628B7C9000025DCDD /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5428B7C9000025DCDD /* AddNewGoal.storyboard */; };
 		33BA7D5828B7D3BD0025DCDD /* PersonalGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */; };
@@ -84,6 +85,7 @@
 		3374EDE928D2439500FE9677 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		3374EDEB28D2441600FE9677 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		3374EDED28D2463A00FE9677 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		33A024B628E36A0B00FF199B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		33B8E2D128CF4EF5005FC980 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		33BA7D5528B7C9000025DCDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Goal App/View/Base.lproj/AddNewGoal.storyboard"; sourceTree = "<group>"; };
 		33BA7D5728B7D3BD0025DCDD /* PersonalGoals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalGoals.storyboard; sourceTree = "<group>"; };
@@ -189,13 +191,13 @@
 			isa = PBXGroup;
 			children = (
 				3352D63E2879F2F900441868 /* AppDelegate.swift */,
+				3352D6402879F2F900441868 /* SceneDelegate.swift */,
 				3352D64A2879F2FF00441868 /* Assets.xcassets */,
 				33B8E2D328CF9B73005FC980 /* Constants */,
 				33E2FA3628B53B8F0089DA75 /* Controllers */,
 				330BD26E288EBBDC00866B41 /* Extension */,
 				336CAA1A28C8AB9400258135 /* GoogleService-Info.plist */,
 				330BD26C288EBBB800866B41 /* Model */,
-				3352D6402879F2F900441868 /* SceneDelegate.swift */,
 				330FE64928BD17CA0025BC90 /* Services */,
 				3374EDE628D242C500FE9677 /* Validation */,
 				330BD26D288EBBCD00866B41 /* View */,
@@ -235,10 +237,11 @@
 				3341FE3B2892A5CF00A8D58F /* AddNewGoalViewController.swift */,
 				3352D6422879F2F900441868 /* HomeViewController.swift */,
 				336E5E1628CD015E0025F245 /* LoginViewController.swift */,
+				332B753B28D6CC4B00172113 /* MainTabBarController.swift */,
 				330BD26F288FFD2000866B41 /* PersonalGoalsViewController.swift */,
+				33A024B628E36A0B00FF199B /* ProfileViewController.swift */,
 				33E1620828CFA738001CC1D4 /* SignUpViewController.swift */,
 				33DEFCE628830FAD00A68414 /* TableViewCell.swift */,
-				332B753B28D6CC4B00172113 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				33CB299328D367FD003D64A5 /* SignUpRequest.swift in Sources */,
 				33D45F982885C47F00167A95 /* UIColor + Extension.swift in Sources */,
 				3374EDE828D242D300FE9677 /* Validation.swift in Sources */,
+				33A024B728E36A0B00FF199B /* ProfileViewController.swift in Sources */,
 				330FE64828BD17B90025BC90 /* FirestoreService.swift in Sources */,
 				3341FE3C2892A5CF00A8D58F /* AddNewGoalViewController.swift in Sources */,
 				3352D6432879F2F900441868 /* HomeViewController.swift in Sources */,

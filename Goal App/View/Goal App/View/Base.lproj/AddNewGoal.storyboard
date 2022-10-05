@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add New Goal-->
+        <!--Add New Goal View Controller-->
         <scene sceneID="0iK-js-548">
             <objects>
                 <viewController storyboardIdentifier="AddNew" id="tFL-KV-nO5" customClass="AddNewGoalViewController" customModule="Goal_App" sceneMemberID="viewController">
@@ -121,7 +121,6 @@
                             <constraint firstItem="lBV-Ni-I6O" firstAttribute="leading" secondItem="taQ-HP-oyC" secondAttribute="leading" id="nT9-b6-PPT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Goal" largeTitleDisplayMode="always" id="9Nu-8i-H31"/>
                     <connections>
                         <outlet property="createdDateView" destination="lBV-Ni-I6O" id="EbY-LR-4nK"/>
                         <outlet property="dueDateView" destination="6dz-eg-Gf3" id="yob-sQ-i1t"/>

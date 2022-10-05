@@ -41,15 +41,20 @@ class MainTabBarController: BaseTabBarController {
         storyboard = UIStoryboard(name: "PersonalGoals", bundle: nil)
         let personalGoalViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.personalGoalsViewController) as? PersonalGoalsViewController
 
+        let profileViewController = ProfileViewController()
+
         if let homeViewController = homeViewController, let personalGoalViewController = personalGoalViewController {
             let homeTab = UINavigationController(rootViewController: homeViewController)
             let goalTab = UINavigationController(rootViewController: personalGoalViewController)
+            let profileTab = UINavigationController(rootViewController: profileViewController)
 
             homeTab.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: nil)
             goalTab.tabBarItem = UITabBarItem(title: "Goals", image: UIImage(systemName: "target"), selectedImage: nil)
+            profileTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), selectedImage: nil)
 
             navigationViewControllers.append(homeTab)
             navigationViewControllers.append(goalTab)
+            navigationViewControllers.append(profileTab)
         } else {
             fatalError("Failure while transitioning to Home screen")
         }
