@@ -46,7 +46,7 @@ extension ProfileViewController {
             jobStackView.topAnchor.constraint(equalTo: userNameStackView.bottomAnchor, constant: 20),
             jobStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             jobStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            jobStackView.heightAnchor.constraint(equalToConstant: 64),
+            jobStackView.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
 
@@ -87,6 +87,7 @@ extension ProfileViewController {
         userNameTextField.placeholder = "User name"
         userNameTextField.font = UIFont.systemFont(ofSize: 18)
         userNameTextField.text = "Keertiraj Malik"
+        userNameTextField.allowsEditingTextAttributes = false
         userNameStackView.addArrangedSubview(userNameTextField)
     }
 
@@ -104,7 +105,7 @@ extension ProfileViewController {
     }
 
     private func jobTextFieldView() {
-        var jobTextFieldLabel = UILabel()
+        let jobTextFieldLabel = UILabel()
         jobTextFieldLabel.text = "Job Profile"
         jobTextFieldLabel.translatesAutoresizingMaskIntoConstraints = false
         jobTextFieldLabel.textColor = .gray
@@ -116,6 +117,7 @@ extension ProfileViewController {
         jobTextField.placeholder = "User name"
         jobTextField.font = UIFont.systemFont(ofSize: 18)
         jobTextField.text = "Software Developer"
+        jobTextField.allowsEditingTextAttributes = false
         jobStackView.addArrangedSubview(jobTextField)
     }
 }
