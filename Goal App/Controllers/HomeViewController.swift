@@ -88,7 +88,7 @@ extension HomeViewController {
         profileImage?.layer.cornerRadius = (profileImage?.frame.size.width ?? 0.0) / 2
         profileImage?.clipsToBounds = true
         profileImage?.layer.borderWidth = 3.0
-        profileImage?.layer.borderColor = UIColor.white.cgColor
+        profileImage?.layer.borderColor = UIColor.black.cgColor
     }
 
     private func progressCircleSetup() {

@@ -18,6 +18,7 @@ class PersonalGoalsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         goals.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         goals.dataSource = self
